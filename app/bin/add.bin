@@ -1,0 +1,30 @@
+
+obj/add.o:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	fe010113          	addi	sp,sp,-32
+   4:	00112e23          	sw	ra,28(sp)
+   8:	00812c23          	sw	s0,24(sp)
+   c:	02010413          	addi	s0,sp,32
+  10:	20800793          	li	a5,520
+  14:	fef42223          	sw	a5,-28(s0)
+  18:	52200793          	li	a5,1314
+  1c:	fef42423          	sw	a5,-24(s0)
+  20:	fe442703          	lw	a4,-28(s0)
+  24:	fe842783          	lw	a5,-24(s0)
+  28:	00f707b3          	add	a5,a4,a5
+  2c:	fef42623          	sw	a5,-20(s0)
+  30:	fec42583          	lw	a1,-20(s0)
+  34:	00000517          	auipc	a0,0x0
+  38:	00050513          	mv	a0,a0
+  3c:	00000097          	auipc	ra,0x0
+  40:	000080e7          	jalr	ra # 3c <main+0x3c>
+  44:	00000793          	li	a5,0
+  48:	00078513          	mv	a0,a5
+  4c:	01c12083          	lw	ra,28(sp)
+  50:	01812403          	lw	s0,24(sp)
+  54:	02010113          	addi	sp,sp,32
+  58:	00008067          	ret

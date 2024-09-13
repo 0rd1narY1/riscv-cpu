@@ -1,0 +1,12 @@
+addi x10,x0,12
+addi x11,x0,25
+slt x12,x10,x11
+slt x13,x11,x10
+addi x14,x0,-12
+addi x15,x0,-15
+slt x16,x14,x15
+slt x17,x15,x14
+sltu x18,x14,x15
+sltu x19,x15,x14
+slt x20,x10,x14
+sltu x21,x10,x14

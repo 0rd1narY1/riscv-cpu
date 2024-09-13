@@ -1,0 +1,991 @@
+Command: ./simv +UVM_VERBOSITY=UVM_LOW -l vcs.log -gui=verdi +UVM_VERDI_TRACE=UVM_AWARE+RAL+HIER+COMPWAVE +UVM_LOG_RECORD
+Command: /home/ord1nary/study/CPU_Project/sim/simv -ucli +UVM_VERBOSITY=UVM_LOW -a vcs.log +UVM_VERDI_TRACE=UVM_AWARE+RAL+HIER+COMPWAVE +UVM_LOG_RECORD +UVM_CONFIG_DB_TRACE +UVM_PHASE_TRACE +UVM_OBJECTION_TRACE +UVM_RESOURCE_DB_TRACE -ucli2Proc -lca
+Warning-[LCA_FEATURES_ENABLED] Usage warning
+  LCA features enabled by '-lca' argument on the command line.  For more 
+  information regarding list of LCA features please refer to Chapter "LCA 
+  features" in the VCS/VCS-MX Release Notes
+Chronologic VCS simulator copyright 1991-2016
+Contains Synopsys proprietary information.
+Compiler version L-2016.06_Full64; Runtime version L-2016.06_Full64;  Sep 13 11:53 2024
+
+ucli% synUtils::getArch
+linux64
+ucli% loaddl -simv /media/ord1nary/Yes/SynopsysEDA/verdi2016/share/PLI/VCS/LINUXAMD64/libnovas.so LoadFSDBDumpCmd;LoadFSDBDumpCmd
+LoadFSDBDumpCmd success
+ucli% config ckptfsdbcheck off;config endofsim noexit;config onfail {enable all};catch {setUcliVerdiConnected};cbug::config pretty_print auto;fsdbDumpfile {/home/ord1nary/study/CPU_Project/sim/inter.fsdb}; fsdbDumpflush;
+*Verdi3* Loading libsscore_vcs201606.so
+*Verdi3* : FSDB_GATE is set.
+*Verdi3* : FSDB_RTL is set.
+*Verdi3* : Enable Parallel Dumping.
+FSDB Dumper for VCS, Release Verdi3_L-2016.06-1, Linux x86_64/64bit, 07/10/2016
+(C) 1996 - 2016 by Synopsys, Inc.
+*Verdi3* : Create FSDB file '/home/ord1nary/study/CPU_Project/sim/inter.fsdb'
+*Verdi3* : Flush all FSDB Files at 0 ps.
+
+ucli% sps_interactive
+*Verdi3* : Enable RPC Server(8771)
+
+ucli% ucliCore::getToolPID
+8771
+ucli% if {[catch {ucliCore::setFocus tool}]} {}
+
+ucli% puts $ucliCore::nativeUcliMode
+0
+
+ucli% ucliCore::getToolTopPID
+8771
+ucli% pid
+8778
+ucli% synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.ord1nary.8771 }
+
+ucli% if { [info vars watch::vcbp_str_len_limit_of_get_value] != ""} {set watch::vcbp_str_len_limit_of_get_value 1024}
+1024
+ucli% info command stateVerdiChangeCB
+
+ucli% proc stateVerdiChangeCB args { if {$ucliGUI::state eq "terminated"} {puts "\nVERDI_SIM_Terminated\n";catch {setVerdiSimTerminated}}}
+
+ucli% trace variable ucliGUI::state wu stateVerdiChangeCB
+
+ucli% if {[catch {rename synopsys::restore verdiHack::restore} ]} {puts "0"}
+
+ucli% proc synopsys::restore {args} { verdiHack::restore $args; puts "\nVERDI_SIM_RESTORE\n"}
+
+ucli% if {[catch {rename quit verdiHack::quit} ]} {puts "0"}
+
+ucli% proc quit {args} { if {[string length $args] == 0} { verdiHack::quit; } elseif {([string equal "-h" $args] == 1)||([string equal "-he" $args] == 1)||([string equal "-hel" $args] == 1)||([string equal "-help" $args] == 1)} { puts "\n quit           # Exit the simulation.\n \[-noprompt\]        (Exit the simulation and Verdi.)\n"} elseif {([string equal "-n" $args] == 1)||([string equal "-no" $args] == 1)||([string equal "-nop" $args] == 1)||([string equal "-nopr" $args] == 1)||([string equal "-nopro" $args] == 1)||([string equal "-noprom" $args] == 1)||([string equal "-nopromp" $args] == 1)||([string equal "-noprompt" $args] == 1)} { puts "\nVERDI_EXIT_N\n" } else { verdiHack::quit $args; } }
+
+ucli% if {[catch {rename exit verdiHack::exit} ]} {puts "0"}
+
+ucli% proc exit {args} { if {[string length $args] == 0} { verdiHack::exit; } elseif {([string equal "-h" $args] == 1)||([string equal "-he" $args] == 1)||([string equal "-hel" $args] == 1)||([string equal "-help" $args] == 1)} { puts "\n exit           # Exit the simulation.\n \[-noprompt\]        (Exit the simulation and Verdi.)\n"} elseif {([string equal "-n" $args] == 1)||([string equal "-no" $args] == 1)||([string equal "-nop" $args] == 1)||([string equal "-nopr" $args] == 1)||([string equal "-nopro" $args] == 1)||([string equal "-noprom" $args] == 1)||([string equal "-nopromp" $args] == 1)||([string equal "-noprompt" $args] == 1)} { puts "\nVERDI_EXIT_N\n" } else { verdiHack::exit $args; } }
+
+ucli% if {[catch {ucliCore::setFocus tool}]} {}
+
+ucli% fsdbDumpflush 
+*Verdi3* : Flush all FSDB Files at 0 ps.
+
+ucli% senv
+activeDomain: Verilog
+activeFile: ./uvm/src/uvm.sv
+activeFrame: -1
+activeLine: 1
+activeScope: _vcs_unit__1799355081
+activeThread: 0
+endCol: 0
+file: ./uvm/src/uvm.sv
+frame: -1
+fsdbFilename: 
+fsdbNewFlow: 1
+hasTB: 1
+inputFilename: 
+keyFilename: ucli.key
+line: 1
+logFilename: vcs.log
+macroIndex: -1
+macroOffset: -1
+pid: 8771
+scope: _vcs_unit__1799355081
+startCol: 0
+state: stopped
+thread: 0
+time: 0
+timePrecision: 1 ps
+vcdFilename: 
+vpdFilename:
+ucli% synUtils::resolveSourceFilename ./uvm/src/uvm.sv
+./uvm/src/uvm.sv
+ucli% puts $::ucliCore::cbug_active
+0
+
+ucli% if {[catch {ucliCore::setFocus tool}]} {}
+
+ucli% checkpoint -list -all
+There are no checkpoints present.
+ucli% stop
+No stop points are set
+ucli% if {[catch {ucliCore::setFocus tool}]} {}
+
+ucli% fsdbDumpvars 1 {tb.i_cpu_soc.i_insn_mem.memory} ;fsdbDumpflush
+*Verdi3* : Dumping the signal (tb.i_cpu_soc.i_insn_mem.memory).
+*Verdi3* : Flush all FSDB Files at 0 ps.
+
+ucli% if {[catch {ucliCore::setFocus tool}]} {}
+
+ucli% run
+UVM_INFO ./uvm/src/base/uvm_root.svh(476) @ 0: reporter [UVM/RELNOTES] 
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  This implementation of the UVM Library deviates from the 1800.2-2020
+  standard.  See the DEVIATIONS.md file contained in the release
+  for more details.
+
+----------------------------------------------------------------
+Accellera:1800.2:UVM:2020.3.1
+
+All copyright owners for this kit are listed in NOTICE.txt
+All Rights Reserved Worldwide
+----------------------------------------------------------------
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO @ 0: reporter [RNTST] Running test my_env...
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/SET] Configuration scope='uvm_test_top.i_agt.drv' name='vif' (type virtual interface my_if) set accessor= = (interface my_if) '{clk:'h0, rstn:'h0, mem_wen_if:'hx, mem_waddr_if:'hxxx, insn_if:'hxxxxxxxx, reg_if:'{'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx} }
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/SET] Configuration scope='uvm_test_top.i_agt.i_mon' name='vif' (type virtual interface my_if) set accessor= = (interface my_if) '{clk:'h0, rstn:'h0, mem_wen_if:'hx, mem_waddr_if:'hxxx, insn_if:'hxxxxxxxx, reg_if:'{'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx} }
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/SET] Configuration scope='uvm_test_top.o_agt.o_mon' name='vif' (type virtual interface my_if) set accessor= = (interface my_if) '{clk:'h0, rstn:'h0, mem_wen_if:'hx, mem_waddr_if:'hxxx, insn_if:'hxxxxxxxx, reg_if:'{'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx} }
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object common raised 1 phase_hopper_objection objection(s) (phase scheduled): count=1  total=1
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top added 1 phase_hopper_objection objection(s) to its total (raised from source object common, phase scheduled): count=0  total=1
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(405) @ 0: reporter [PH/TRC/SCHEDULED] Phase 'common' (id=149) Scheduled from run_test
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(436) @ 0: reporter [PH/TRC/STRT] Phase 'common' (id=149) Starting phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(730) @ 0: reporter [PH/TRC/DONE] Phase 'common' (id=149) Completed phase
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object common.build raised 1 phase_hopper_objection objection(s) (phase scheduled): count=1  total=1
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top added 1 phase_hopper_objection objection(s) to its total (raised from source object common.build, phase scheduled): count=0  total=2
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(405) @ 0: reporter [PH/TRC/SCHEDULED] Phase 'common.build' (id=155) Scheduled from phase common
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object common dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object common all_dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top subtracted 1 phase_hopper_objection objection(s) from its total (dropped from source object common, phase done): count=0  total=1
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(436) @ 0: reporter [PH/TRC/STRT] Phase 'common.build' (id=155) Starting phase
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.i_agt_mdl_fifo.put_export' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.i_agt_mdl_fifo.put_export = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.i_agt_mdl_fifo.get_peek_export' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.i_agt_mdl_fifo.get_peek_export = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.i_agt_mdl_fifo.put_ap' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.i_agt_mdl_fifo.put_ap = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.i_agt_mdl_fifo.get_ap' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.i_agt_mdl_fifo.get_ap = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.i_agt_mdl_fifo.analysis_export' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.i_agt_mdl_fifo.analysis_export = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.mdl_scb_fifo.put_export' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.mdl_scb_fifo.put_export = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.mdl_scb_fifo.get_peek_export' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.mdl_scb_fifo.get_peek_export = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.mdl_scb_fifo.put_ap' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.mdl_scb_fifo.put_ap = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.mdl_scb_fifo.get_ap' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.mdl_scb_fifo.get_ap = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.mdl_scb_fifo.analysis_export' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.mdl_scb_fifo.analysis_export = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.o_agt_scb_fifo.put_export' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.o_agt_scb_fifo.put_export = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.o_agt_scb_fifo.get_peek_export' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.o_agt_scb_fifo.get_peek_export = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.o_agt_scb_fifo.put_ap' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.o_agt_scb_fifo.put_ap = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.o_agt_scb_fifo.get_ap' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.o_agt_scb_fifo.get_ap = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.o_agt_scb_fifo.analysis_export' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.o_agt_scb_fifo.analysis_export = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/SET] Configuration scope='uvm_test_top.i_agt.sqr.main_phase' name='default_sequence' (type class uvm_pkg::uvm_object_wrapper) set accessor=uvm_test_top = (class uvm_pkg::uvm_object_wrapper) '{}
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.i_agt.sqr.rsp_export' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.i_agt.sqr.rsp_export = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.i_agt.sqr.sqr_rsp_analysis_fifo.put_export' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.i_agt.sqr.sqr_rsp_analysis_fifo.put_export = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.i_agt.sqr.sqr_rsp_analysis_fifo.get_peek_export' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.i_agt.sqr.sqr_rsp_analysis_fifo.get_peek_export = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.i_agt.sqr.sqr_rsp_analysis_fifo.put_ap' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.i_agt.sqr.sqr_rsp_analysis_fifo.put_ap = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.i_agt.sqr.sqr_rsp_analysis_fifo.get_ap' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.i_agt.sqr.sqr_rsp_analysis_fifo.get_ap = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.i_agt.sqr.sqr_rsp_analysis_fifo.analysis_export' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.i_agt.sqr.sqr_rsp_analysis_fifo.analysis_export = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.i_agt.sqr.req_fifo.put_export' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.i_agt.sqr.req_fifo.put_export = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.i_agt.sqr.req_fifo.get_peek_export' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.i_agt.sqr.req_fifo.get_peek_export = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.i_agt.sqr.req_fifo.put_ap' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.i_agt.sqr.req_fifo.put_ap = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.i_agt.sqr.req_fifo.get_ap' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.i_agt.sqr.req_fifo.get_ap = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.i_agt.sqr.seq_item_export' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.i_agt.sqr.seq_item_export = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.i_agt.drv.seq_item_port' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.i_agt.drv.seq_item_port = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.i_agt.drv.rsp_port' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.i_agt.drv.rsp_port = null (failed lookup)
+UVM_INFO my_driver.sv(17) @ 0: uvm_test_top.i_agt.drv [my_driver] new is called
+UVM_INFO my_driver.sv(22) @ 0: uvm_test_top.i_agt.drv [my_driver] build phase is called
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.i_agt.drv' name='vif' (type virtual interface my_if) read accessor=uvm_test_top.i_agt.drv = (interface my_if) '{clk:'h0, rstn:'h0, mem_wen_if:'hx, mem_waddr_if:'hxxx, insn_if:'hxxxxxxxx, reg_if:'{'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx} }
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.i_agt.i_mon' name='vif' (type virtual interface my_if) read accessor=uvm_test_top.i_agt.i_mon = (interface my_if) '{clk:'h0, rstn:'h0, mem_wen_if:'hx, mem_waddr_if:'hxxx, insn_if:'hxxxxxxxx, reg_if:'{'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx} }
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.i_agt.i_mon.ap' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.i_agt.i_mon.ap = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.i_agt.sqr' name='wait_for_sequences_count' (type logic signed[4095:0]) read accessor=uvm_test_top.i_agt.sqr = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.i_agt.sqr' name='wait_for_sequences_count' (type int) read accessor=uvm_test_top.i_agt.sqr = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.mdl.port' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.mdl.port = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.mdl.ap' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.mdl.ap = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.o_agt.o_mon' name='vif' (type virtual interface my_if) read accessor=uvm_test_top.o_agt.o_mon = (interface my_if) '{clk:'h0, rstn:'h0, mem_wen_if:'hx, mem_waddr_if:'hxxx, insn_if:'hxxxxxxxx, reg_if:'{'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx, 'hxxxxxxxx} }
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.o_agt.o_mon.ap' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.o_agt.o_mon.ap = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.scb.exp_port' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.scb.exp_port = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_config_db_implementation.svh(485) @ 0: reporter [CFGDB/GET] Configuration scope='uvm_test_top.scb.act_port' name='check_connection_relationships' (type logic signed[4095:0]) read accessor=uvm_test_top.scb.act_port = null (failed lookup)
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(730) @ 0: reporter [PH/TRC/DONE] Phase 'common.build' (id=155) Completed phase
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object common.connect raised 1 phase_hopper_objection objection(s) (phase scheduled): count=1  total=1
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top added 1 phase_hopper_objection objection(s) to its total (raised from source object common.connect, phase scheduled): count=0  total=2
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(405) @ 0: reporter [PH/TRC/SCHEDULED] Phase 'common.connect' (id=160) Scheduled from phase common.build
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object common.build dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object common.build all_dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top subtracted 1 phase_hopper_objection objection(s) from its total (dropped from source object common.build, phase done): count=0  total=1
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(436) @ 0: reporter [PH/TRC/STRT] Phase 'common.connect' (id=160) Starting phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(730) @ 0: reporter [PH/TRC/DONE] Phase 'common.connect' (id=160) Completed phase
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object common.end_of_elaboration raised 1 phase_hopper_objection objection(s) (phase scheduled): count=1  total=1
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top added 1 phase_hopper_objection objection(s) to its total (raised from source object common.end_of_elaboration, phase scheduled): count=0  total=2
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(405) @ 0: reporter [PH/TRC/SCHEDULED] Phase 'common.end_of_elaboration' (id=165) Scheduled from phase common.connect
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object common.connect dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object common.connect all_dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top subtracted 1 phase_hopper_objection objection(s) from its total (dropped from source object common.connect, phase done): count=0  total=1
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(436) @ 0: reporter [PH/TRC/STRT] Phase 'common.end_of_elaboration' (id=165) Starting phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(730) @ 0: reporter [PH/TRC/DONE] Phase 'common.end_of_elaboration' (id=165) Completed phase
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object common.start_of_simulation raised 1 phase_hopper_objection objection(s) (phase scheduled): count=1  total=1
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top added 1 phase_hopper_objection objection(s) to its total (raised from source object common.start_of_simulation, phase scheduled): count=0  total=2
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(405) @ 0: reporter [PH/TRC/SCHEDULED] Phase 'common.start_of_simulation' (id=170) Scheduled from phase common.end_of_elaboration
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object common.end_of_elaboration dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object common.end_of_elaboration all_dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top subtracted 1 phase_hopper_objection objection(s) from its total (dropped from source object common.end_of_elaboration, phase done): count=0  total=1
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(436) @ 0: reporter [PH/TRC/STRT] Phase 'common.start_of_simulation' (id=170) Starting phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(730) @ 0: reporter [PH/TRC/DONE] Phase 'common.start_of_simulation' (id=170) Completed phase
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object common.run raised 1 phase_hopper_objection objection(s) (phase scheduled): count=1  total=1
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top added 1 phase_hopper_objection objection(s) to its total (raised from source object common.run, phase scheduled): count=0  total=2
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(405) @ 0: reporter [PH/TRC/SCHEDULED] Phase 'common.run' (id=175) Scheduled from phase common.start_of_simulation
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm raised 1 phase_hopper_objection objection(s) (phase scheduled): count=1  total=1
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top added 1 phase_hopper_objection objection(s) to its total (raised from source object uvm, phase scheduled): count=0  total=3
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(405) @ 0: reporter [PH/TRC/SCHEDULED] Phase 'uvm' (id=71) Scheduled from phase common.start_of_simulation
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object common.start_of_simulation dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(436) @ 0: reporter [PH/TRC/STRT] Phase 'common.run' (id=175) Starting phase
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object common.start_of_simulation all_dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top subtracted 1 phase_hopper_objection objection(s) from its total (dropped from source object common.start_of_simulation, phase done): count=0  total=2
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(436) @ 0: reporter [PH/TRC/STRT] Phase 'uvm' (id=71) Starting phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(730) @ 0: reporter [PH/TRC/DONE] Phase 'uvm' (id=71) Completed phase
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched raised 1 phase_hopper_objection objection(s) (phase scheduled): count=1  total=1
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top added 1 phase_hopper_objection objection(s) to its total (raised from source object uvm.uvm_sched, phase scheduled): count=0  total=3
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(405) @ 0: reporter [PH/TRC/SCHEDULED] Phase 'uvm.uvm_sched' (id=75) Scheduled from phase uvm
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm all_dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top subtracted 1 phase_hopper_objection objection(s) from its total (dropped from source object uvm, phase done): count=0  total=2
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(436) @ 0: reporter [PH/TRC/STRT] Phase 'uvm.uvm_sched' (id=75) Starting phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(730) @ 0: reporter [PH/TRC/DONE] Phase 'uvm.uvm_sched' (id=75) Completed phase
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.pre_reset raised 1 phase_hopper_objection objection(s) (phase scheduled): count=1  total=1
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top added 1 phase_hopper_objection objection(s) to its total (raised from source object uvm.uvm_sched.pre_reset, phase scheduled): count=0  total=3
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(405) @ 0: reporter [PH/TRC/SCHEDULED] Phase 'uvm.uvm_sched.pre_reset' (id=81) Scheduled from phase uvm.uvm_sched
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched all_dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top subtracted 1 phase_hopper_objection objection(s) from its total (dropped from source object uvm.uvm_sched, phase done): count=0  total=2
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(436) @ 0: reporter [PH/TRC/STRT] Phase 'uvm.uvm_sched.pre_reset' (id=81) Starting phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(518) @ 0: reporter [PH/TRC/SKIP] Phase 'uvm.uvm_sched.pre_reset' (id=81) No objections raised, skipping phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(518) @ 0: reporter [PH/TRC/SKIP] Phase 'common.run' (id=175) No objections raised, skipping phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(730) @ 0: reporter [PH/TRC/DONE] Phase 'uvm.uvm_sched.pre_reset' (id=81) Completed phase
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.reset raised 1 phase_hopper_objection objection(s) (phase scheduled): count=1  total=1
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top added 1 phase_hopper_objection objection(s) to its total (raised from source object uvm.uvm_sched.reset, phase scheduled): count=0  total=3
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(405) @ 0: reporter [PH/TRC/SCHEDULED] Phase 'uvm.uvm_sched.reset' (id=86) Scheduled from phase uvm.uvm_sched.pre_reset
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.pre_reset dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.pre_reset all_dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top subtracted 1 phase_hopper_objection objection(s) from its total (dropped from source object uvm.uvm_sched.pre_reset, phase done): count=0  total=2
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(436) @ 0: reporter [PH/TRC/STRT] Phase 'uvm.uvm_sched.reset' (id=86) Starting phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(518) @ 0: reporter [PH/TRC/SKIP] Phase 'uvm.uvm_sched.reset' (id=86) No objections raised, skipping phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(730) @ 0: reporter [PH/TRC/DONE] Phase 'uvm.uvm_sched.reset' (id=86) Completed phase
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.post_reset raised 1 phase_hopper_objection objection(s) (phase scheduled): count=1  total=1
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top added 1 phase_hopper_objection objection(s) to its total (raised from source object uvm.uvm_sched.post_reset, phase scheduled): count=0  total=3
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(405) @ 0: reporter [PH/TRC/SCHEDULED] Phase 'uvm.uvm_sched.post_reset' (id=91) Scheduled from phase uvm.uvm_sched.reset
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.reset dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.reset all_dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top subtracted 1 phase_hopper_objection objection(s) from its total (dropped from source object uvm.uvm_sched.reset, phase done): count=0  total=2
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(436) @ 0: reporter [PH/TRC/STRT] Phase 'uvm.uvm_sched.post_reset' (id=91) Starting phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(518) @ 0: reporter [PH/TRC/SKIP] Phase 'uvm.uvm_sched.post_reset' (id=91) No objections raised, skipping phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(730) @ 0: reporter [PH/TRC/DONE] Phase 'uvm.uvm_sched.post_reset' (id=91) Completed phase
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.pre_configure raised 1 phase_hopper_objection objection(s) (phase scheduled): count=1  total=1
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top added 1 phase_hopper_objection objection(s) to its total (raised from source object uvm.uvm_sched.pre_configure, phase scheduled): count=0  total=3
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(405) @ 0: reporter [PH/TRC/SCHEDULED] Phase 'uvm.uvm_sched.pre_configure' (id=96) Scheduled from phase uvm.uvm_sched.post_reset
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.post_reset dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.post_reset all_dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top subtracted 1 phase_hopper_objection objection(s) from its total (dropped from source object uvm.uvm_sched.post_reset, phase done): count=0  total=2
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(436) @ 0: reporter [PH/TRC/STRT] Phase 'uvm.uvm_sched.pre_configure' (id=96) Starting phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(518) @ 0: reporter [PH/TRC/SKIP] Phase 'uvm.uvm_sched.pre_configure' (id=96) No objections raised, skipping phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(730) @ 0: reporter [PH/TRC/DONE] Phase 'uvm.uvm_sched.pre_configure' (id=96) Completed phase
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.configure raised 1 phase_hopper_objection objection(s) (phase scheduled): count=1  total=1
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top added 1 phase_hopper_objection objection(s) to its total (raised from source object uvm.uvm_sched.configure, phase scheduled): count=0  total=3
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(405) @ 0: reporter [PH/TRC/SCHEDULED] Phase 'uvm.uvm_sched.configure' (id=101) Scheduled from phase uvm.uvm_sched.pre_configure
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.pre_configure dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.pre_configure all_dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top subtracted 1 phase_hopper_objection objection(s) from its total (dropped from source object uvm.uvm_sched.pre_configure, phase done): count=0  total=2
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(436) @ 0: reporter [PH/TRC/STRT] Phase 'uvm.uvm_sched.configure' (id=101) Starting phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(518) @ 0: reporter [PH/TRC/SKIP] Phase 'uvm.uvm_sched.configure' (id=101) No objections raised, skipping phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(730) @ 0: reporter [PH/TRC/DONE] Phase 'uvm.uvm_sched.configure' (id=101) Completed phase
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.post_configure raised 1 phase_hopper_objection objection(s) (phase scheduled): count=1  total=1
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top added 1 phase_hopper_objection objection(s) to its total (raised from source object uvm.uvm_sched.post_configure, phase scheduled): count=0  total=3
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(405) @ 0: reporter [PH/TRC/SCHEDULED] Phase 'uvm.uvm_sched.post_configure' (id=106) Scheduled from phase uvm.uvm_sched.configure
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.configure dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.configure all_dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top subtracted 1 phase_hopper_objection objection(s) from its total (dropped from source object uvm.uvm_sched.configure, phase done): count=0  total=2
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(436) @ 0: reporter [PH/TRC/STRT] Phase 'uvm.uvm_sched.post_configure' (id=106) Starting phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(518) @ 0: reporter [PH/TRC/SKIP] Phase 'uvm.uvm_sched.post_configure' (id=106) No objections raised, skipping phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(730) @ 0: reporter [PH/TRC/DONE] Phase 'uvm.uvm_sched.post_configure' (id=106) Completed phase
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.pre_main raised 1 phase_hopper_objection objection(s) (phase scheduled): count=1  total=1
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top added 1 phase_hopper_objection objection(s) to its total (raised from source object uvm.uvm_sched.pre_main, phase scheduled): count=0  total=3
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(405) @ 0: reporter [PH/TRC/SCHEDULED] Phase 'uvm.uvm_sched.pre_main' (id=111) Scheduled from phase uvm.uvm_sched.post_configure
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.post_configure dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.post_configure all_dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top subtracted 1 phase_hopper_objection objection(s) from its total (dropped from source object uvm.uvm_sched.post_configure, phase done): count=0  total=2
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(436) @ 0: reporter [PH/TRC/STRT] Phase 'uvm.uvm_sched.pre_main' (id=111) Starting phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(518) @ 0: reporter [PH/TRC/SKIP] Phase 'uvm.uvm_sched.pre_main' (id=111) No objections raised, skipping phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(730) @ 0: reporter [PH/TRC/DONE] Phase 'uvm.uvm_sched.pre_main' (id=111) Completed phase
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.main raised 1 phase_hopper_objection objection(s) (phase scheduled): count=1  total=1
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top added 1 phase_hopper_objection objection(s) to its total (raised from source object uvm.uvm_sched.main, phase scheduled): count=0  total=3
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(405) @ 0: reporter [PH/TRC/SCHEDULED] Phase 'uvm.uvm_sched.main' (id=116) Scheduled from phase uvm.uvm_sched.pre_main
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.pre_main dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.pre_main all_dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 0: phase_hopper_objection [OBJTN_TRC] Object uvm_top subtracted 1 phase_hopper_objection objection(s) from its total (dropped from source object uvm.uvm_sched.pre_main, phase done): count=0  total=2
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(436) @ 0: reporter [PH/TRC/STRT] Phase 'uvm.uvm_sched.main' (id=116) Starting phase
+UVM_INFO my_driver.sv(33) @ 0: uvm_test_top.i_agt.drv [my_driver] main phase is called
+UVM_INFO my_model.sv(44) @ 0: uvm_test_top.mdl [my_model] Generate EXPECTED Values
+UVM_INFO my_output_monitor.sv(29) @ 0: uvm_test_top.o_agt.o_mon [my_output_monitor] main_phase is called
+UVM_INFO my_output_monitor.sv(38) @ 0: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_INFO my_scoreboard.sv(24) @ 0: uvm_test_top.scb [my_scoreboard] Begin to compare
+UVM_INFO @ 0: main_objection [OBJTN_TRC] Object uvm_test_top.i_agt.sqr.my_sequence raised 1 main_objection objection(s): count=1  total=1
+UVM_INFO @ 0: main_objection [OBJTN_TRC] Object uvm_test_top.i_agt.sqr added 1 main_objection objection(s) to its total (raised from source object ): count=0  total=1
+UVM_INFO @ 0: main_objection [OBJTN_TRC] Object uvm_test_top.i_agt added 1 main_objection objection(s) to its total (raised from source object ): count=0  total=1
+UVM_INFO @ 0: main_objection [OBJTN_TRC] Object uvm_test_top added 1 main_objection objection(s) to its total (raised from source object uvm_test_top.i_agt.sqr.my_sequence): count=0  total=1
+UVM_INFO @ 0: main_objection [OBJTN_TRC] Object uvm_top added 1 main_objection objection(s) to its total (raised from source object uvm_test_top.i_agt.sqr.my_sequence): count=0  total=1
+UVM_INFO my_driver.sv(45) @ 20000: uvm_test_top.i_agt.drv [my_driver] drive_insn_trans is called
+--------------------------------------------------------------------------------------------
+Name                           Type                 Size  Value                             
+--------------------------------------------------------------------------------------------
+m_trans                        my_insn_transaction  -     @1111                             
+  insn_reg                     da(integral)         12    -                                 
+    [0]                        integral             32    'ha537                            
+    [1]                        integral             32    'h150593                          
+    [2]                        integral             32    'h158613                          
+    [3]                        integral             32    'h160693                          
+    [4]                        integral             32    'ha02223                          
+    [5]                        integral             32    'hb02423                          
+    [6]                        integral             32    'hc02623                          
+    [7]                        integral             32    'hd02823                          
+    [8]                        integral             32    'h402703                          
+    [9]                        integral             32    'h802783                          
+    [10]                       integral             32    'hc02803                          
+    [11]                       integral             32    'h1002883                         
+  begin_time                   time                 64    20000                             
+  depth                        int                  32    'd2                               
+  parent sequence (name)       string               11    my_sequence                       
+  parent sequence (full name)  string               34    uvm_test_top.i_agt.sqr.my_sequence
+  sequencer                    string               22    uvm_test_top.i_agt.sqr            
+--------------------------------------------------------------------------------------------
+UVM_INFO my_input_monitor.sv(47) @ 25000: uvm_test_top.i_agt.i_mon [my_input_monitor] Begin to collect instructions
+UVM_INFO my_input_monitor.sv(57) @ 25000: uvm_test_top.i_agt.i_mon [my_input_monitor] Instructions collected
+--------------------------------------------
+Name        Type                 Size  Value
+--------------------------------------------
+tr          my_insn_transaction  -     @1083
+  insn_reg  da(integral)         1     -    
+--------------------------------------------
+UVM_INFO my_input_monitor.sv(59) @ 25000: uvm_test_top.i_agt.i_mon [my_input_monitor] End collecting instructions
+UVM_INFO my_driver.sv(52) @ 25000: uvm_test_top.i_agt.drv [my_driver] data is drived
+model insn
+--------------------------------------------
+Name        Type                 Size  Value
+--------------------------------------------
+tr          my_insn_transaction  -     @1083
+  insn_reg  da(integral)         1     -    
+--------------------------------------------
+UVM_INFO my_model.sv(52) @ 25000: uvm_test_top.mdl [my_model] Decoder
+UVM_INFO my_model.sv(141) @ 25000: uvm_test_top.mdl [my_model] ALU
+UVM_INFO my_model.sv(168) @ 25000: uvm_test_top.mdl [my_model] Send EXPECTED Values to Scoreboard
+UVM_INFO my_model.sv(44) @ 25000: uvm_test_top.mdl [my_model] Generate EXPECTED Values
+UVM_INFO my_input_monitor.sv(47) @ 35000: uvm_test_top.i_agt.i_mon [my_input_monitor] Begin to collect instructions
+UVM_INFO my_driver.sv(52) @ 35000: uvm_test_top.i_agt.drv [my_driver] data is drived
+UVM_INFO my_driver.sv(52) @ 45000: uvm_test_top.i_agt.drv [my_driver] data is drived
+UVM_INFO my_output_monitor.sv(44) @ 55000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_driver.sv(52) @ 55000: uvm_test_top.i_agt.drv [my_driver] data is drived
+UVM_INFO my_output_monitor.sv(47) @ 65000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 65000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_INFO my_driver.sv(52) @ 65000: uvm_test_top.i_agt.drv [my_driver] data is drived
+UVM_INFO ./uvm/src/base/uvm_comparer.svh(575) @ 65000: reporter [MISCMP] Miscompare for tr.cpu_reg[11]: lhs = 'h1 : rhs = 'h2000
+UVM_INFO ./uvm/src/base/uvm_comparer.svh(527) @ 65000: reporter [MISCMP] 1 Miscompare(s) for object tr@1089 vs. reg_tr@1145
+UVM_ERROR my_scoreboard.sv(37) @ 65000: uvm_test_top.scb [my_scoreboard] Compare FAILED
+The Expected Values are:
+-------------------------------------------
+Name       Type                Size  Value 
+-------------------------------------------
+reg_tr     my_reg_transaction  -     @1145 
+  cpu_reg  sa(integral)        2     -     
+    [31]   integral            32    'h0   
+    [30]   integral            32    'h0   
+    [29]   integral            32    'h0   
+    [28]   integral            32    'h0   
+    [27]   integral            32    'h0   
+    [26]   integral            32    'h0   
+    [25]   integral            32    'h0   
+    [24]   integral            32    'h0   
+    [23]   integral            32    'h0   
+    [22]   integral            32    'h0   
+    [21]   integral            32    'h0   
+    [20]   integral            32    'h0   
+    [19]   integral            32    'h0   
+    [18]   integral            32    'h0   
+    [17]   integral            32    'h0   
+    [16]   integral            32    'h0   
+    [15]   integral            32    'h0   
+    [14]   integral            32    'h0   
+    [13]   integral            32    'h0   
+    [12]   integral            32    'h0   
+    [11]   integral            32    'h2000
+    [10]   integral            32    'h0   
+    [9]    integral            32    'h0   
+    [8]    integral            32    'h0   
+    [7]    integral            32    'h0   
+    [6]    integral            32    'h0   
+    [5]    integral            32    'h0   
+    [4]    integral            32    'h0   
+    [3]    integral            32    'h0   
+    [2]    integral            32    'h0   
+    [1]    integral            32    'h0   
+-------------------------------------------
+The Actual Values are:
+------------------------------------------
+Name       Type                Size  Value
+------------------------------------------
+tr         my_reg_transaction  -     @1089
+  cpu_reg  sa(integral)        2     -    
+    [31]   integral            32    'h0  
+    [30]   integral            32    'h0  
+    [29]   integral            32    'h0  
+    [28]   integral            32    'h0  
+    [27]   integral            32    'h0  
+    [26]   integral            32    'h0  
+    [25]   integral            32    'h0  
+    [24]   integral            32    'h0  
+    [23]   integral            32    'h0  
+    [22]   integral            32    'h0  
+    [21]   integral            32    'h0  
+    [20]   integral            32    'h0  
+    [19]   integral            32    'h0  
+    [18]   integral            32    'h0  
+    [17]   integral            32    'h0  
+    [16]   integral            32    'h0  
+    [15]   integral            32    'h0  
+    [14]   integral            32    'h0  
+    [13]   integral            32    'h0  
+    [12]   integral            32    'h0  
+    [11]   integral            32    'h1  
+    [10]   integral            32    'h0  
+    [9]    integral            32    'h0  
+    [8]    integral            32    'h0  
+    [7]    integral            32    'h0  
+    [6]    integral            32    'h0  
+    [5]    integral            32    'h0  
+    [4]    integral            32    'h0  
+    [3]    integral            32    'h0  
+    [2]    integral            32    'h0  
+    [1]    integral            32    'h0  
+------------------------------------------
+UVM_INFO my_output_monitor.sv(44) @ 75000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_driver.sv(52) @ 75000: uvm_test_top.i_agt.drv [my_driver] data is drived
+UVM_INFO my_output_monitor.sv(47) @ 85000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 85000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_INFO my_driver.sv(52) @ 85000: uvm_test_top.i_agt.drv [my_driver] data is drived
+UVM_ERROR my_scoreboard.sv(45) @ 85000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 95000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_driver.sv(52) @ 95000: uvm_test_top.i_agt.drv [my_driver] data is drived
+UVM_INFO my_output_monitor.sv(47) @ 105000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 105000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_INFO my_driver.sv(52) @ 105000: uvm_test_top.i_agt.drv [my_driver] data is drived
+UVM_ERROR my_scoreboard.sv(45) @ 105000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 115000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_driver.sv(52) @ 115000: uvm_test_top.i_agt.drv [my_driver] data is drived
+UVM_INFO my_output_monitor.sv(47) @ 125000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 125000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_INFO my_driver.sv(52) @ 125000: uvm_test_top.i_agt.drv [my_driver] data is drived
+UVM_ERROR my_scoreboard.sv(45) @ 125000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 135000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_driver.sv(52) @ 135000: uvm_test_top.i_agt.drv [my_driver] data is drived
+UVM_INFO my_output_monitor.sv(47) @ 145000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 145000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_INFO my_driver.sv(52) @ 145000: uvm_test_top.i_agt.drv [my_driver] data is drived
+UVM_ERROR my_scoreboard.sv(45) @ 145000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 155000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_input_monitor.sv(57) @ 155000: uvm_test_top.i_agt.i_mon [my_input_monitor] Instructions collected
+------------------------------------------------
+Name        Type                 Size  Value    
+------------------------------------------------
+tr          my_insn_transaction  -     @1141    
+  insn_reg  da(integral)         12    -        
+    [0]     integral             32    'ha537   
+    [1]     integral             32    'h150593 
+    [2]     integral             32    'h158613 
+    [3]     integral             32    'h160693 
+    [4]     integral             32    'ha02223 
+    [5]     integral             32    'hb02423 
+    [6]     integral             32    'hc02623 
+    [7]     integral             32    'hd02823 
+    [8]     integral             32    'h402703 
+    [9]     integral             32    'h802783 
+    [10]    integral             32    'hc02803 
+    [11]    integral             32    'h1002883
+------------------------------------------------
+UVM_INFO my_input_monitor.sv(59) @ 155000: uvm_test_top.i_agt.i_mon [my_input_monitor] End collecting instructions
+UVM_INFO my_driver.sv(52) @ 155000: uvm_test_top.i_agt.drv [my_driver] data is drived
+model insn
+------------------------------------------------
+Name        Type                 Size  Value    
+------------------------------------------------
+tr          my_insn_transaction  -     @1141    
+  insn_reg  da(integral)         12    -        
+    [0]     integral             32    'ha537   
+    [1]     integral             32    'h150593 
+    [2]     integral             32    'h158613 
+    [3]     integral             32    'h160693 
+    [4]     integral             32    'ha02223 
+    [5]     integral             32    'hb02423 
+    [6]     integral             32    'hc02623 
+    [7]     integral             32    'hd02823 
+    [8]     integral             32    'h402703 
+    [9]     integral             32    'h802783 
+    [10]    integral             32    'hc02803 
+    [11]    integral             32    'h1002883
+------------------------------------------------
+UVM_INFO my_model.sv(52) @ 155000: uvm_test_top.mdl [my_model] Decoder
+UVM_INFO my_model.sv(141) @ 155000: uvm_test_top.mdl [my_model] ALU
+UVM_INFO my_model.sv(168) @ 155000: uvm_test_top.mdl [my_model] Send EXPECTED Values to Scoreboard
+UVM_INFO my_model.sv(44) @ 155000: uvm_test_top.mdl [my_model] Generate EXPECTED Values
+UVM_INFO my_output_monitor.sv(47) @ 165000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 165000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_INFO ./uvm/src/base/uvm_comparer.svh(575) @ 165000: reporter [MISCMP] Miscompare for tr.cpu_reg[17]: lhs = 'h3 : rhs = 'h0
+UVM_INFO ./uvm/src/base/uvm_comparer.svh(527) @ 165000: reporter [MISCMP] 1 Miscompare(s) for object tr@1241 vs. reg_tr@1259
+UVM_ERROR my_scoreboard.sv(37) @ 165000: uvm_test_top.scb [my_scoreboard] Compare FAILED
+The Expected Values are:
+-------------------------------------------
+Name       Type                Size  Value 
+-------------------------------------------
+reg_tr     my_reg_transaction  -     @1259 
+  cpu_reg  sa(integral)        2     -     
+    [31]   integral            32    'h0   
+    [30]   integral            32    'h0   
+    [29]   integral            32    'h0   
+    [28]   integral            32    'h0   
+    [27]   integral            32    'h0   
+    [26]   integral            32    'h0   
+    [25]   integral            32    'h0   
+    [24]   integral            32    'h0   
+    [23]   integral            32    'h0   
+    [22]   integral            32    'h0   
+    [21]   integral            32    'h0   
+    [20]   integral            32    'h0   
+    [19]   integral            32    'h0   
+    [18]   integral            32    'h0   
+    [17]   integral            32    'h0   
+    [16]   integral            32    'h0   
+    [15]   integral            32    'h0   
+    [14]   integral            32    'h0   
+    [13]   integral            32    'h0   
+    [12]   integral            32    'h0   
+    [11]   integral            32    'h2001
+    [10]   integral            32    'h0   
+    [9]    integral            32    'h0   
+    [8]    integral            32    'h0   
+    [7]    integral            32    'h0   
+    [6]    integral            32    'h0   
+    [5]    integral            32    'h0   
+    [4]    integral            32    'h0   
+    [3]    integral            32    'h0   
+    [2]    integral            32    'h0   
+    [1]    integral            32    'h0   
+-------------------------------------------
+The Actual Values are:
+------------------------------------------
+Name       Type                Size  Value
+------------------------------------------
+tr         my_reg_transaction  -     @1241
+  cpu_reg  sa(integral)        2     -    
+    [31]   integral            32    'h0  
+    [30]   integral            32    'h0  
+    [29]   integral            32    'h0  
+    [28]   integral            32    'h0  
+    [27]   integral            32    'h0  
+    [26]   integral            32    'h0  
+    [25]   integral            32    'h0  
+    [24]   integral            32    'h0  
+    [23]   integral            32    'h0  
+    [22]   integral            32    'h0  
+    [21]   integral            32    'h0  
+    [20]   integral            32    'h0  
+    [19]   integral            32    'h0  
+    [18]   integral            32    'h0  
+    [17]   integral            32    'h3  
+    [16]   integral            32    'h2  
+    [15]   integral            32    'h1  
+    [14]   integral            32    'h0  
+    [13]   integral            32    'h3  
+    [12]   integral            32    'h2  
+    [11]   integral            32    'h1  
+    [10]   integral            32    'h0  
+    [9]    integral            32    'h0  
+    [8]    integral            32    'h0  
+    [7]    integral            32    'h0  
+    [6]    integral            32    'h0  
+    [5]    integral            32    'h0  
+    [4]    integral            32    'h0  
+    [3]    integral            32    'h0  
+    [2]    integral            32    'h0  
+    [1]    integral            32    'h0  
+------------------------------------------
+UVM_INFO my_output_monitor.sv(44) @ 175000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 185000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 185000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 185000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 195000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 205000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 205000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 205000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 215000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 225000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 225000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 225000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 235000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 245000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 245000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 245000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 255000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 265000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 265000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 265000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 275000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 285000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 285000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 285000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 295000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 305000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 305000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 305000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 315000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 325000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 325000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 325000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 335000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 345000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 345000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 345000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 355000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 365000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 365000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 365000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 375000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 385000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 385000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 385000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 395000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 405000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 405000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 405000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 415000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 425000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 425000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 425000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 435000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 445000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 445000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 445000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 455000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 465000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 465000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 465000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 475000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 485000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 485000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 485000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 495000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 505000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 505000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 505000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 515000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 525000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 525000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 525000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 535000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 545000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 545000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 545000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 555000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 565000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 565000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 565000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 575000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 585000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 585000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 585000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 595000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 605000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 605000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 605000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 615000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 625000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 625000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 625000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 635000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 645000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 645000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 645000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 655000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 665000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 665000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 665000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 675000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 685000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 685000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 685000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 695000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 705000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 705000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 705000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 715000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 725000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 725000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 725000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 735000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 745000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 745000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 745000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 755000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 765000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 765000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 765000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 775000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 785000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 785000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 785000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 795000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 805000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 805000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 805000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 815000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 825000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 825000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 825000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 835000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 845000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 845000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 845000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 855000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 865000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 865000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 865000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 875000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 885000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 885000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 885000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 895000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 905000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 905000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 905000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 915000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 925000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 925000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 925000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 935000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 945000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 945000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 945000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 955000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 965000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 965000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 965000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 975000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 985000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 985000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 985000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 995000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 1005000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 1005000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 1005000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 1015000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 1025000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 1025000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 1025000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 1035000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 1045000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 1045000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 1045000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 1055000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 1065000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 1065000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 1065000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 1075000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 1085000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 1085000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 1085000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 1095000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 1105000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 1105000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 1105000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 1115000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 1125000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 1125000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 1125000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO my_output_monitor.sv(44) @ 1135000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO my_output_monitor.sv(47) @ 1145000: uvm_test_top.o_agt.o_mon [my_output_monitor] End collecting registers
+UVM_INFO my_output_monitor.sv(38) @ 1145000: uvm_test_top.o_agt.o_mon [my_output_monitor] collect_trans is called
+UVM_ERROR my_scoreboard.sv(45) @ 1145000: uvm_test_top.scb [my_scoreboard] Expected Queue is EMPTY
+UVM_INFO @ 1155000: main_objection [OBJTN_TRC] Object uvm_test_top.i_agt.sqr.my_sequence dropped 1 main_objection objection(s): count=0  total=0
+UVM_INFO my_output_monitor.sv(44) @ 1155000: uvm_test_top.o_agt.o_mon [my_output_monitor] Begin to collect registers
+UVM_INFO @ 1155000: main_objection [OBJTN_TRC] Object uvm_test_top.i_agt.sqr.my_sequence all_dropped 1 main_objection objection(s): count=0  total=0
+UVM_INFO @ 1155000: main_objection [OBJTN_TRC] Object uvm_test_top.i_agt.sqr subtracted 1 main_objection objection(s) from its total (dropped from source object ): count=0  total=0
+UVM_INFO @ 1155000: main_objection [OBJTN_TRC] Object uvm_test_top.i_agt.sqr subtracted 1 main_objection objection(s) from its total (all_dropped from source object ): count=0  total=0
+UVM_INFO @ 1155000: main_objection [OBJTN_TRC] Object uvm_test_top.i_agt subtracted 1 main_objection objection(s) from its total (dropped from source object ): count=0  total=0
+UVM_INFO @ 1155000: main_objection [OBJTN_TRC] Object uvm_test_top.i_agt subtracted 1 main_objection objection(s) from its total (all_dropped from source object ): count=0  total=0
+UVM_INFO @ 1155000: main_objection [OBJTN_TRC] Object uvm_test_top subtracted 1 main_objection objection(s) from its total (dropped from source object uvm_test_top.i_agt.sqr.my_sequence): count=0  total=0
+UVM_INFO @ 1155000: main_objection [OBJTN_TRC] Object uvm_test_top subtracted 1 main_objection objection(s) from its total (all_dropped from source object uvm_test_top.i_agt.sqr.my_sequence): count=0  total=0
+UVM_INFO @ 1155000: main_objection [OBJTN_TRC] Object uvm_top subtracted 1 main_objection objection(s) from its total (dropped from source object uvm_test_top.i_agt.sqr.my_sequence): count=0  total=0
+UVM_INFO @ 1155000: main_objection [OBJTN_TRC] Object uvm_top subtracted 1 main_objection objection(s) from its total (all_dropped from source object uvm_test_top.i_agt.sqr.my_sequence): count=0  total=0
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(730) @ 1155000: reporter [PH/TRC/DONE] Phase 'uvm.uvm_sched.main' (id=116) Completed phase
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.post_main raised 1 phase_hopper_objection objection(s) (phase scheduled): count=1  total=1
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm_top added 1 phase_hopper_objection objection(s) to its total (raised from source object uvm.uvm_sched.post_main, phase scheduled): count=0  total=3
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(405) @ 1155000: reporter [PH/TRC/SCHEDULED] Phase 'uvm.uvm_sched.post_main' (id=121) Scheduled from phase uvm.uvm_sched.main
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.main dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.main all_dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm_top subtracted 1 phase_hopper_objection objection(s) from its total (dropped from source object uvm.uvm_sched.main, phase done): count=0  total=2
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(436) @ 1155000: reporter [PH/TRC/STRT] Phase 'uvm.uvm_sched.post_main' (id=121) Starting phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(518) @ 1155000: reporter [PH/TRC/SKIP] Phase 'uvm.uvm_sched.post_main' (id=121) No objections raised, skipping phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(730) @ 1155000: reporter [PH/TRC/DONE] Phase 'uvm.uvm_sched.post_main' (id=121) Completed phase
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.pre_shutdown raised 1 phase_hopper_objection objection(s) (phase scheduled): count=1  total=1
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm_top added 1 phase_hopper_objection objection(s) to its total (raised from source object uvm.uvm_sched.pre_shutdown, phase scheduled): count=0  total=3
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(405) @ 1155000: reporter [PH/TRC/SCHEDULED] Phase 'uvm.uvm_sched.pre_shutdown' (id=126) Scheduled from phase uvm.uvm_sched.post_main
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.post_main dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.post_main all_dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm_top subtracted 1 phase_hopper_objection objection(s) from its total (dropped from source object uvm.uvm_sched.post_main, phase done): count=0  total=2
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(436) @ 1155000: reporter [PH/TRC/STRT] Phase 'uvm.uvm_sched.pre_shutdown' (id=126) Starting phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(518) @ 1155000: reporter [PH/TRC/SKIP] Phase 'uvm.uvm_sched.pre_shutdown' (id=126) No objections raised, skipping phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(730) @ 1155000: reporter [PH/TRC/DONE] Phase 'uvm.uvm_sched.pre_shutdown' (id=126) Completed phase
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.shutdown raised 1 phase_hopper_objection objection(s) (phase scheduled): count=1  total=1
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm_top added 1 phase_hopper_objection objection(s) to its total (raised from source object uvm.uvm_sched.shutdown, phase scheduled): count=0  total=3
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(405) @ 1155000: reporter [PH/TRC/SCHEDULED] Phase 'uvm.uvm_sched.shutdown' (id=131) Scheduled from phase uvm.uvm_sched.pre_shutdown
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.pre_shutdown dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.pre_shutdown all_dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm_top subtracted 1 phase_hopper_objection objection(s) from its total (dropped from source object uvm.uvm_sched.pre_shutdown, phase done): count=0  total=2
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(436) @ 1155000: reporter [PH/TRC/STRT] Phase 'uvm.uvm_sched.shutdown' (id=131) Starting phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(518) @ 1155000: reporter [PH/TRC/SKIP] Phase 'uvm.uvm_sched.shutdown' (id=131) No objections raised, skipping phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(730) @ 1155000: reporter [PH/TRC/DONE] Phase 'uvm.uvm_sched.shutdown' (id=131) Completed phase
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.post_shutdown raised 1 phase_hopper_objection objection(s) (phase scheduled): count=1  total=1
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm_top added 1 phase_hopper_objection objection(s) to its total (raised from source object uvm.uvm_sched.post_shutdown, phase scheduled): count=0  total=3
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(405) @ 1155000: reporter [PH/TRC/SCHEDULED] Phase 'uvm.uvm_sched.post_shutdown' (id=136) Scheduled from phase uvm.uvm_sched.shutdown
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.shutdown dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.shutdown all_dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm_top subtracted 1 phase_hopper_objection objection(s) from its total (dropped from source object uvm.uvm_sched.shutdown, phase done): count=0  total=2
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(436) @ 1155000: reporter [PH/TRC/STRT] Phase 'uvm.uvm_sched.post_shutdown' (id=136) Starting phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(518) @ 1155000: reporter [PH/TRC/SKIP] Phase 'uvm.uvm_sched.post_shutdown' (id=136) No objections raised, skipping phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(730) @ 1155000: reporter [PH/TRC/DONE] Phase 'common.run' (id=175) Completed phase
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object common.extract raised 1 phase_hopper_objection objection(s) (phase scheduled): count=1  total=1
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm_top added 1 phase_hopper_objection objection(s) to its total (raised from source object common.extract, phase scheduled): count=0  total=3
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(405) @ 1155000: reporter [PH/TRC/SCHEDULED] Phase 'common.extract' (id=180) Scheduled from phase common.run
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object common.run dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object common.run all_dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm_top subtracted 1 phase_hopper_objection objection(s) from its total (dropped from source object common.run, phase done): count=0  total=2
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(730) @ 1155000: reporter [PH/TRC/DONE] Phase 'uvm.uvm_sched.post_shutdown' (id=136) Completed phase
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched_end raised 1 phase_hopper_objection objection(s) (phase scheduled): count=1  total=1
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm_top added 1 phase_hopper_objection objection(s) to its total (raised from source object uvm.uvm_sched_end, phase scheduled): count=0  total=3
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(405) @ 1155000: reporter [PH/TRC/SCHEDULED] Phase 'uvm.uvm_sched_end' (id=77) Scheduled from phase uvm.uvm_sched.post_shutdown
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.post_shutdown dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched.post_shutdown all_dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm_top subtracted 1 phase_hopper_objection objection(s) from its total (dropped from source object uvm.uvm_sched.post_shutdown, phase done): count=0  total=2
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(436) @ 1155000: reporter [PH/TRC/STRT] Phase 'uvm.uvm_sched_end' (id=77) Starting phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(730) @ 1155000: reporter [PH/TRC/DONE] Phase 'uvm.uvm_sched_end' (id=77) Completed phase
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_end raised 1 phase_hopper_objection objection(s) (phase scheduled): count=1  total=1
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm_top added 1 phase_hopper_objection objection(s) to its total (raised from source object uvm.uvm_end, phase scheduled): count=0  total=3
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(405) @ 1155000: reporter [PH/TRC/SCHEDULED] Phase 'uvm.uvm_end' (id=73) Scheduled from phase uvm.uvm_sched_end
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched_end dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_sched_end all_dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm_top subtracted 1 phase_hopper_objection objection(s) from its total (dropped from source object uvm.uvm_sched_end, phase done): count=0  total=2
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(436) @ 1155000: reporter [PH/TRC/STRT] Phase 'uvm.uvm_end' (id=73) Starting phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(730) @ 1155000: reporter [PH/TRC/DONE] Phase 'uvm.uvm_end' (id=73) Completed phase
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_end dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(436) @ 1155000: reporter [PH/TRC/STRT] Phase 'common.extract' (id=180) Starting phase
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm.uvm_end all_dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm_top subtracted 1 phase_hopper_objection objection(s) from its total (dropped from source object uvm.uvm_end, phase done): count=0  total=1
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(730) @ 1155000: reporter [PH/TRC/DONE] Phase 'common.extract' (id=180) Completed phase
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object common.check raised 1 phase_hopper_objection objection(s) (phase scheduled): count=1  total=1
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm_top added 1 phase_hopper_objection objection(s) to its total (raised from source object common.check, phase scheduled): count=0  total=2
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(405) @ 1155000: reporter [PH/TRC/SCHEDULED] Phase 'common.check' (id=185) Scheduled from phase common.extract
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object common.extract dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object common.extract all_dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm_top subtracted 1 phase_hopper_objection objection(s) from its total (dropped from source object common.extract, phase done): count=0  total=1
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(436) @ 1155000: reporter [PH/TRC/STRT] Phase 'common.check' (id=185) Starting phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(730) @ 1155000: reporter [PH/TRC/DONE] Phase 'common.check' (id=185) Completed phase
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object common.report raised 1 phase_hopper_objection objection(s) (phase scheduled): count=1  total=1
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm_top added 1 phase_hopper_objection objection(s) to its total (raised from source object common.report, phase scheduled): count=0  total=2
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(405) @ 1155000: reporter [PH/TRC/SCHEDULED] Phase 'common.report' (id=190) Scheduled from phase common.check
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object common.check dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object common.check all_dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm_top subtracted 1 phase_hopper_objection objection(s) from its total (dropped from source object common.check, phase done): count=0  total=1
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(436) @ 1155000: reporter [PH/TRC/STRT] Phase 'common.report' (id=190) Starting phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(730) @ 1155000: reporter [PH/TRC/DONE] Phase 'common.report' (id=190) Completed phase
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object common.final raised 1 phase_hopper_objection objection(s) (phase scheduled): count=1  total=1
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm_top added 1 phase_hopper_objection objection(s) to its total (raised from source object common.final, phase scheduled): count=0  total=2
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(405) @ 1155000: reporter [PH/TRC/SCHEDULED] Phase 'common.final' (id=195) Scheduled from phase common.report
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object common.report dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object common.report all_dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm_top subtracted 1 phase_hopper_objection objection(s) from its total (dropped from source object common.report, phase done): count=0  total=1
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(436) @ 1155000: reporter [PH/TRC/STRT] Phase 'common.final' (id=195) Starting phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(730) @ 1155000: reporter [PH/TRC/DONE] Phase 'common.final' (id=195) Completed phase
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object common.common_end raised 1 phase_hopper_objection objection(s) (phase scheduled): count=1  total=1
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm_top added 1 phase_hopper_objection objection(s) to its total (raised from source object common.common_end, phase scheduled): count=0  total=2
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(405) @ 1155000: reporter [PH/TRC/SCHEDULED] Phase 'common.common_end' (id=151) Scheduled from phase common.final
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object common.final dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object common.final all_dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm_top subtracted 1 phase_hopper_objection objection(s) from its total (dropped from source object common.final, phase done): count=0  total=1
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(436) @ 1155000: reporter [PH/TRC/STRT] Phase 'common.common_end' (id=151) Starting phase
+UVM_INFO ./uvm/src/base/uvm_phase_hopper.svh(730) @ 1155000: reporter [PH/TRC/DONE] Phase 'common.common_end' (id=151) Completed phase
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object common.common_end dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object common.common_end all_dropped 1 phase_hopper_objection objection(s) (phase done): count=0  total=0
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm_top subtracted 1 phase_hopper_objection objection(s) from its total (dropped from source object common.common_end, phase done): count=0  total=0
+UVM_INFO @ 1155000: phase_hopper_objection [OBJTN_TRC] Object uvm_top subtracted 1 phase_hopper_objection objection(s) from its total (all_dropped from source object common.common_end, phase done): count=0  total=0
+UVM_INFO ./uvm/src/base/uvm_report_server.svh(1009) @ 1155000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :  495
+UVM_WARNING :    0
+UVM_ERROR :   55
+UVM_FATAL :    0
+** Report counts by id
+[CFGDB/GET]    39
+[CFGDB/SET]     4
+[MISCMP]     4
+[OBJTN_TRC]   151
+[PH/TRC/DONE]    27
+[PH/TRC/SCHEDULED]    27
+[PH/TRC/SKIP]    12
+[PH/TRC/STRT]    27
+[RNTST]     1
+[UVM/RELNOTES]     1
+[my_driver]    18
+[my_input_monitor]     6
+[my_model]     9
+[my_output_monitor]   168
+[my_scoreboard]    56
+
+$finish called from file "./uvm/src/base/uvm_root.svh", line 633.
+$finish at simulation time              1155000
+Simulation complete, time is 1155000 ps.
+uvm_root.svh, 631 :       if (get_finish_on_completion()) begin
+
+ucli% ucliCore::getToolPID
+8771
+ucli% if {[catch {ucliCore::setFocus tool}]} {}
+
+ucli% fsdbDumpflush 
+*Verdi3* : Flush all FSDB Files at 1,155,000 ps.
+
+ucli% senv
+activeDomain: Verilog
+activeFile: ./uvm/src/base/uvm_root.svh
+activeFrame: 2
+activeLine: 631
+activeScope: uvm_pkg.\uvm_root::run_test 
+activeThread: 13
+endCol: 0
+file: ./uvm/src/base/uvm_root.svh
+frame: 2
+fsdbFilename: 
+fsdbNewFlow: 1
+hasTB: 1
+inputFilename: 
+keyFilename: ucli.key
+line: 631
+logFilename: vcs.log
+macroIndex: -1
+macroOffset: -1
+pid: 8771
+scope: uvm_pkg.\uvm_root::run_test 
+startCol: 0
+state: stopped
+thread: 13
+time: 1155000
+timePrecision: 1 ps
+vcdFilename: 
+vpdFilename:
+ucli% synUtils::resolveSourceFilename ./uvm/src/base/uvm_root.svh
+./uvm/src/base/uvm_root.svh
+ucli% puts $::ucliCore::cbug_active
+0
+
+ucli% if {[catch {ucliCore::setFocus tool}]} {}
+
+ucli% checkpoint -list -all
+There are no checkpoints present.
+ucli% if {[catch {ucliCore::setFocus tool}]} {}
+
+ucli% stop
+No stop points are set
+ucli% if {[catch {ucliCore::setFocus tool}]} {}
+
+ucli% finish; quit
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 1155000 ps
+CPU Time:      0.210 seconds;       Data structure size:   0.5Mb
+Fri Sep 13 11:54:01 2024
+
+VERDI_SIM_Terminated
+

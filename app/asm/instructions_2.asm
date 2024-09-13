@@ -1,0 +1,4 @@
+addi x10,x0,0x1ad
+xori x11,x10,0x111
+andi x12,x11,0x10a
+ori x13,x12,0x564

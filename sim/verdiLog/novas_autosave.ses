@@ -1,0 +1,71 @@
+@verdi rc file Version 1.0
+[General]
+VerdiVersion = Verdi3_L-2016.06-1
+[KeyNote]
+Line1 = Automatic Backup 0
+[TestBench]
+ConstrViewShow = 0
+InherViewShow = 0
+FSDBMsgShow = 0
+AnnotationShow = 0
+powerDumped = 0
+[hb]
+postSimFile = /home/ord1nary/study/CPU_Project/sim/inter.fsdb
+syncTime = 1155000
+viewport = 0 35 1920 1008 544 315 58 1918
+activeNode = "tb.i_cpu_soc.i_insn_mem"
+activeFile = "/home/ord1nary/study/CPU_Project/sim/uvm/src/base/uvm_root.svh"
+interactiveMode = False
+viewType = Source
+simulatorMode = False
+sourceBeginLine = 618
+baMode = False
+srcLineNum = True
+syncSignal = False
+traceMode = Hierarchical
+showTraceInSchema = True
+paMode = False
+funcMode = False
+traceCrossHier = True
+DnDtraceCrossHierOnly = True
+traceIncTopPort = False
+leadingZero = False
+signalPane = False
+Scope1 = "tb.i_cpu_soc.i_insn_mem"
+Scope2 = "tb.i_cpu_soc"
+Scope3 = "tb"
+rangeSelection = 631 631 1 11 1 1
+sdfCheckUndef = FALSE
+simFlow = FALSE
+[hb.sourceTab.1]
+File = /home/ord1nary/study/CPU_Project/sim/uvm/src/base/uvm_root.svh
+Line = 619
+[imp.design1]
+dbEnum =  oh
+invokeDir = /home/ord1nary/study/CPU_Project/sim
+design = DebussyLib
+hostCommand = hostCommand -elab ./simv.daidir/kdb.elab++
+topName = tb 
+fromLibrary = TRUE
+[nMemoryManager]
+FsdbFile = /home/ord1nary/study/CPU_Project/sim/inter.fsdb
+UserActionNum = 0
+nMemWindowNum = 0
+[wave.0]
+viewPort = 0 28 1920 850 100 65
+SessionFile = /home/ord1nary/study/CPU_Project/sim/verdiLog/novas_autosave.ses.wave.0
+displayGrid = FALSE
+hierarchicalName = FALSE
+snap = TRUE
+displayLeadingZeros = FALSE
+fixDelta = FALSE
+displayCursorMarker = FALSE
+autoUpdate = FALSE
+highlightGlitchs = FALSE
+waveformSync = FALSE
+displayErrors = TRUE
+displayMsgSymbols = TRUE
+showMsgDescriptions = TRUE
+autoFit = FALSE
+displayDeltaY = FALSE
+centerCursor = FALSE
