@@ -1,6 +1,6 @@
 ###################################################################
 
-# Created by write_sdc on Fri Sep 13 21:48:50 2024
+# Created by write_sdc on Sat Sep 14 15:07:01 2024
 
 ###################################################################
 set sdc_version 2.0
@@ -140,7 +140,10 @@ set_load -pin_load 2 [get_ports {data_o[3]}]
 set_load -pin_load 2 [get_ports {data_o[2]}]
 set_load -pin_load 2 [get_ports {data_o[1]}]
 set_load -pin_load 2 [get_ports {data_o[0]}]
-set_load -pin_load 2 [get_ports mem_wr_o]
+set_load -pin_load 2 [get_ports {mem_wr_o[3]}]
+set_load -pin_load 2 [get_ports {mem_wr_o[2]}]
+set_load -pin_load 2 [get_ports {mem_wr_o[1]}]
+set_load -pin_load 2 [get_ports {mem_wr_o[0]}]
 set_load -pin_load 2 [get_ports {data_addr_o[11]}]
 set_load -pin_load 2 [get_ports {data_addr_o[10]}]
 set_load -pin_load 2 [get_ports {data_addr_o[9]}]

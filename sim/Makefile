@@ -48,4 +48,4 @@ run:
 cov:
 	dve -full64 -covdir *.vdb &
 clean:
-	rm -rf *~ core csrc simv* vc_hdrs.h ucli.key urg* *.log inter* novas* DVEfiles verdiLog vdCovLog
+	rm -rf *~ core csrc simv* vc_hdrs.h ucli.key urg* *.log inter* novas* DVEfiles verdiLog vdCovLog covdir.vdb cov_exclusion transcript _vcs_cp_internal.dat.ord1nary.19779

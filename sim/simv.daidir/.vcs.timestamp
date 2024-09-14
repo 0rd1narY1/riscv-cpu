@@ -388,7 +388,7 @@ line+cond+fsm+branch+tgl
 simv
 testbench.sv
 87
-sysc_uni_pwd=/home/ord1nary/study/DigitalLogic_CPUDesign/sc_cpu/sim
+sysc_uni_pwd=/home/ord1nary/study/CPU_Project/sim
 _CE_M=
 _CE_CONDA=
 XMODIFIERS=@im=fcitx
@@ -417,14 +417,14 @@ VANA_LICENSE_TO=sui bian xie
 VANA_LICENSE_MODE=true
 USERNAME=ord1nary
 UNAME=/bin/uname
-TURBO_LOG_DIR=/tmp/vcs_20240912155711_59309
+TURBO_LOG_DIR=/tmp/vcs_20240914070535_52136
 TOOL_HOME=/media/ord1nary/Yes/SynopsysEDA/vcs2016/linux64
-SYSTEMD_EXEC_PID=2610
+SYSTEMD_EXEC_PID=2441
 SYNOPSYS=/media/ord1nary/Yes/SynopsysEDA/designcompiler2016
 SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
 SSH_AGENT_LAUNCHER=gnome-keyring
 SPIKE_PATH=/home/ord1nary/study/DigitalLogic_CPUDesign/sc_cpu/toolchains/riscv-isa-sim/bin
-SESSION_MANAGER=local/DellUbuntu:@/tmp/.ICE-unix/2319,unix/DellUbuntu:/tmp/.ICE-unix/2319
+SESSION_MANAGER=local/DellUbuntu:@/tmp/.ICE-unix/2418,unix/DellUbuntu:/tmp/.ICE-unix/2418
 SCRNAME=vcs
 SCRIPT_NAME=vcs
 QT_IM_MODULE=fcitx
@@ -437,8 +437,8 @@ NOVAS_HOME=/media/ord1nary/Yes/SynopsysEDA/verdi2016
 NEMU_HOME=/home/ord1nary/study/Chip/ysyx-workbench/nemu
 NDK_CCACHE=ccache
 MFLAGS=
-MAKE_TERMOUT=/dev/pts/1
-MAKE_TERMERR=/dev/pts/1
+MAKE_TERMOUT=/dev/pts/0
+MAKE_TERMERR=/dev/pts/0
 MAKELEVEL=1
 MAKEFLAGS=
 LESSOPEN=| /usr/bin/lesspipe %s
@@ -458,8 +458,8 @@ GTK_MODULES=gail:atk-bridge
 GTK_IM_MODULE=fcitx
 GTK3_MODULES=xapp-gtk3-module
 GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
-GNOME_TERMINAL_SERVICE=:1.139
-GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/02586441_5abe_4c6c_8a73_bbdb9ae8a5c4
+GNOME_TERMINAL_SERVICE=:1.127
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/4fbdfb77_aaa6_412f_b297_8a268edefba7
 GNOME_SHELL_SESSION_MODE=ubuntu
 GNOME_DESKTOP_SESSION_ID=this-is-deprecated
 GDMSESSION=ubuntu
@@ -477,16 +477,16 @@ CCACHE_DIR=/home/ord1nary/.ccache
 AM_HOME=/home/ord1nary/study/Chip/ysyx-workbench/abstract-machine
 0
 191
-1726041512 my_if.sv
+1726286977 my_if.sv
 1726155536 my_scoreboard.sv
 1726156050 my_model.sv
 1726042411 my_reg_transaction.sv
 1726156499 my_output_monitor.sv
 1726150417 my_input_monitor.sv
-1726156623 my_sequence.sv
+1726296593 my_sequence.sv
 1726042589 my_sequencer.sv
 1726042403 my_insn_transaction.sv
-1726153458 my_driver.sv
+1726294005 my_driver.sv
 1726151844 my_agent.sv
 1726152778 my_env.sv
 1724947317 ./uvm/src/reg/sequences/uvm_reg_mem_hdl_paths_seq.svh
@@ -655,15 +655,15 @@ AM_HOME=/home/ord1nary/study/Chip/ysyx-workbench/abstract-machine
 1724947317 ./uvm/src/macros/uvm_version_defines.svh
 1725860908 ./uvm/src/uvm_macros.svh
 1724947317 ./uvm/src/uvm_pkg.sv
-1726156374 testbench.sv
+1726294783 testbench.sv
 1726061740 ../src/alu/alu.v
-1725863495 ../src/regfile/memory.v
-1725863500 ../src/regfile/regfile.v
+1726292128 ../src/regfile/memory.v
+1726220004 ../src/regfile/regfile.v
 1726058991 ../src/decoder/decoder.v
-1725863473 ../src/ctrl_unit/ctrlu.v
-1725863487 ../src/ifu/ifu.v
-1725938387 ../src/cpu.v
-1725863519 ../src/cpu_soc.v
+1726297533 ../src/ctrl_unit/ctrlu.v
+1726294244 ../src/ifu/ifu.v
+1726292186 ../src/cpu.v
+1726292103 ../src/cpu_soc.v
 1724947317 ./uvm/src/uvm.sv
 1464145457 /media/ord1nary/Yes/SynopsysEDA/vcs2016/include/cm_vcsd.tab
 1468145700 /media/ord1nary/Yes/SynopsysEDA/verdi2016/share/PLI/VCS/LINUX64/verdi.tab
@@ -674,4 +674,4 @@ AM_HOME=/home/ord1nary/study/Chip/ysyx-workbench/abstract-machine
 1464147802 /media/ord1nary/Yes/SynopsysEDA/vcs2016/linux64/lib/libvirsim.so
 1464147272 /media/ord1nary/Yes/SynopsysEDA/vcs2016/linux64/lib/liberrorinf.so
 1464147248 /media/ord1nary/Yes/SynopsysEDA/vcs2016/linux64/lib/libsnpsmalloc.so
-1726156639 simv.daidir
+1726297541 simv.daidir

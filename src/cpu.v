@@ -7,7 +7,7 @@ module cpu(
     input [31:0]data_i,         //Data from data memory
     output [31:0]pc_o,
     output [31:0]data_o,        //Data to be written into data memory
-    output mem_wr_o,            //Data memory read/write control
+    output [3:0]mem_wr_o,            //Data memory read/write control
     output [11:0]data_addr_o,   //Data memory read/write address
     output ebreak_o             //Ebreak signal
 );
@@ -31,7 +31,7 @@ module cpu(
     wire [3:0]alu_ctr;      //ALU control signal 
     wire mem_to_reg;        //Select Data memory output to register set 
     wire reg_wr;            //Register set read/write control 
-    wire mem_wr;            //Data memory read/write control 
+    wire [3:0]mem_wr;       //Data memory read/write control 
     wire [2:0]ext_op;       //Immediate number extender control 
     wire ebreak;            //Ebreak signal
     /* Register Set ports */

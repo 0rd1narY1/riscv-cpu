@@ -1,0 +1,92 @@
+{
+    "Modules": {
+        "my_if": {
+            "Compiled": "Yes",
+            "Compiled Times": 4
+        },
+        "...MASTER...": {},
+        "_vcs_unit__1799355081": {
+            "Compiled": "Yes",
+            "Compiled Times": 4
+        },
+        "std": {
+            "Compiled": "Yes",
+            "Compiled Times": 4
+        },
+        "vcs_paramclassrepository": {
+            "Compiled": "Yes",
+            "Compiled Times": 4
+        },
+        "uvm_pkg": {
+            "Compiled": "Yes",
+            "Compiled Times": 4
+        },
+        "memory": {
+            "Compiled": "Yes",
+            "Compiled Times": 4
+        },
+        "_vcs_DPI_package": {
+            "Compiled": "Yes",
+            "Compiled Times": 4
+        },
+        "cpu_soc": {
+            "Compiled": "Yes",
+            "Compiled Times": 4
+        },
+        "tb": {
+            "Compiled": "Yes",
+            "Compiled Times": 4
+        }
+    },
+    "CompUnits": {
+        "GsS9E_d": {
+            "bytes": 88504,
+            "mod": "cpu_soc",
+            "out": "GsS9E_d.o",
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.3/_52983_archive_1.a"
+        }
+    },
+    "reusePaths": {
+        "uM9F1_d": {
+            "icPath": "csrc"
+        },
+        "amcQw_d": {
+            "icPath": "csrc"
+        },
+        "hEeZs_d": {
+            "icPath": "csrc"
+        },
+        "NcV53_d": {
+            "icPath": "csrc"
+        },
+        "reYIK_d": {
+            "icPath": "csrc"
+        },
+        "zr7M1_d": {
+            "icPath": "csrc"
+        },
+        "g7hgQ_d": {
+            "icPath": "csrc"
+        },
+        "qKzhu_d": {
+            "icPath": "csrc"
+        },
+        "DhPSm_d": {
+            "icPath": "csrc"
+        }
+    },
+    "ObjArchives": [
+        {
+            "size": 88504,
+            "archive": "archive.3/_52983_archive_1.a",
+            "objects": [
+                [
+                    "GsS9E_d.o",
+                    88504
+                ]
+            ]
+        }
+    ]
+}

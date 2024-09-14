@@ -147,7 +147,7 @@ Limit information:
 cputime			unlimited
 filesize		unlimited
 datasize		unlimited
-stacksize		8250 kbytes
+stacksize		8192 kbytes
 coredumpsize	0 kbytes
 memoryuse		unlimited
 vmemoryuse		unlimited
@@ -159,7 +159,7 @@ maxproc			62640
 
 Runtime environment variables:
 SHELL=/bin/bash
-SESSION_MANAGER=local/DellUbuntu:@/tmp/.ICE-unix/2399,unix/DellUbuntu:/tmp/.ICE-unix/2399
+SESSION_MANAGER=local/DellUbuntu:@/tmp/.ICE-unix/2418,unix/DellUbuntu:/tmp/.ICE-unix/2418
 QT_ACCESSIBILITY=1
 COLORTERM=truecolor
 VCS_ARCH_OVERRIDE=linux
@@ -185,15 +185,13 @@ DESKTOP_SESSION=ubuntu
 LC_MONETARY=en_US.UTF-8
 PT_HOME=/media/ord1nary/Yes/SynopsysEDA/primetime2016
 GTK_MODULES=gail:atk-bridge
-DBUS_STARTER_BUS_TYPE=session
-ZEITGEIST_DATA_PATH=/home/ord1nary/.local/share/zeitgeist
 PWD=/home/ord1nary/study/CPU_Project/sim
 XDG_SESSION_DESKTOP=ubuntu
 LOGNAME=ord1nary
 XDG_SESSION_TYPE=x11
 CCACHE_DIR=/home/ord1nary/.ccache
 GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
-SYSTEMD_EXEC_PID=2399
+SYSTEMD_EXEC_PID=2441
 XAUTHORITY=/run/user/1000/gdm/Xauthority
 SPS_FONT_PATH=/media/ord1nary/Yes/SynopsysEDA/verdi2016/font
 DC_HOME=/media/ord1nary/Yes/SynopsysEDA/designcompiler2016
@@ -211,7 +209,7 @@ LC_PAPER=en_US.UTF-8
 LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
 XDG_CURRENT_DESKTOP=ubuntu:GNOME
 VTE_VERSION=6800
-GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/eb629a33_cf3a_4eb3_aa18_fb2da1389bce
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/4fbdfb77_aaa6_412f_b297_8a268edefba7
 VERDI_ORIGNAL_LD_LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8::/usr/local/cuda-12.3/lib64
 SPIKE_PATH=/home/ord1nary/study/DigitalLogic_CPUDesign/sc_cpu/toolchains/riscv-isa-sim/bin
 VANA_LICENSE_MODE=true
@@ -230,7 +228,7 @@ _CE_CONDA=
 LESSOPEN=| /usr/bin/lesspipe %s
 USER=ord1nary
 MAKE_TERMERR=/dev/pts/0
-GNOME_TERMINAL_SERVICE=:1.155
+GNOME_TERMINAL_SERVICE=:1.127
 CONDA_SHLVL=0
 DISPLAY=:1
 VCS_PATHMAP_PRELOAD_DONE=1
@@ -242,7 +240,6 @@ QT_IM_MODULE=fcitx
 LC_MEASUREMENT=en_US.UTF-8
 NOVAS_SYNC_MOTIF_DISP=
 VANA_LICENSE_TO=sui bian xie
-DBUS_STARTER_ADDRESS=unix:path=/run/user/1000/bus,guid=8fd08dc31142f173d94c089666e3acdf
 PAPERSIZE=letter
 LM_LICENSE_FILE=/media/ord1nary/Yeah/Questasim2021/questasim/license.dat:/media/ord1nary/Yes/SynopsysEDA/scl11.9/license/Synopsys.dat
 CONDA_PYTHON_EXE=/home/ord1nary/anaconda3/bin/python
@@ -256,7 +253,7 @@ GTK3_MODULES=xapp-gtk3-module
 XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/home/ord1nary/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 PATH=/bin:/home/ord1nary/.local/bin:/home/ord1nary/anaconda3/condabin:/media/ord1nary/Yeah/Questasim2021/questasim/RUVM_2021.2:/media/ord1nary/Yeah/Questasim2021/questasim/linux_x86_64:/usr/lib/ccache:/home/ord1nary/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/.local/bin/nvim-linux64/bin:/home/ord1nary/anaconda3/bin:/usr/local/cuda-12.3/bin:/usr/src/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin:/media/ord1nary/Yes/SynopsysEDA/vcs2016/gui/dve/bin:/media/ord1nary/Yes/SynopsysEDA/vcs2016/bin:/media/ord1nary/Yes/SynopsysEDA/verdi2016/bin:/media/ord1nary/Yes/SynopsysEDA/scl11.9/linux/bin:/media/ord1nary/Yes/SynopsysEDA/designcompiler2016/bin:/media/ord1nary/Yes/SynopsysEDA/primetime2016/bin:/media/ord1nary/Yes/SynopsysEDA/formality2015/bin
 GDMSESSION=ubuntu
-DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus,guid=8fd08dc31142f173d94c089666e3acdf
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
 QT_PLUGIN_PATH=/media/ord1nary/Yes/SynopsysEDA/verdi2016/platform/LINUXAMD64/bin/plugins
 SYS_INST_DIR=/media/ord1nary/Yes/SynopsysEDA/verdi2016
 LC_NUMERIC=en_US.UTF-8
@@ -301,64 +298,124 @@ argv[9]=+UVM_OBJECTION_TRACE
 argv[10]=+UVM_RESOURCE_DB_TRACE
 argv[11]=-ucli2Proc
 argv[12]=-lca
-303 profile - 100
-          CPU/Mem usage: 0.020 sys,  0.040 user,  206.65M sys,  0.00M vm
-304 VC callback profile - scalar:0 vector:0
-305 Fri Sep 13 11:53:41 2024
-306 pliAppInit
-307 ndpGetenv(FSDB_FILE): /home/ord1nary/study/CPU_Project/sim/inter.fsdb
-308 ndpGetenv(FSDB_SVA_STATUS): 1
-309 *Verdi3* : FSDB_GATE is set.
-310 *Verdi3* : FSDB_RTL is set.
-311 *Verdi3* : Enable Parallel Dumping.
-312 pliAppMiscSet: New Sim Round
-313 pliEntryInit
-314 LIBSSCORE=found /media/ord1nary/Yes/SynopsysEDA/verdi2016/share/PLI/lib/LINUXAMD64/libsscore_vcs201606.so through $NOVAS_HOME setting.
-315 FSDB Dumper for VCS, Release Verdi3_L-2016.06-1, Linux x86_64/64bit, 07/10/2016
-316 (C) 1996 - 2016 by Synopsys, Inc.
-317 sps_tcl_fsdbDumpfile
-318 argv[0]: /home/ord1nary/study/CPU_Project/sim/inter.fsdb
-319 *Verdi3* : Create FSDB file '/home/ord1nary/study/CPU_Project/sim/inter.fsdb'
-320 sps_tcl_fsdbDumpflush
-321 *Verdi3* : Flush all FSDB Files at 0 ps.
-322 sps_tcl_fsdbDumpflush
-323 *Verdi3* : Flush all FSDB Files at 0 ps.
-324 sps_tcl_fsdbDumpvars
-325 argv[0]: 1
-326 argv[1]: tb.i_cpu_soc.i_insn_mem.memory
-327 *Verdi3* : Dumping the signal (tb.i_cpu_soc.i_insn_mem.memory).
-328 fsdbDumpvars traverse var: profile - 
-          CPU/Mem usage: 0.020 sys,  0.090 user,  315.09M sys,  0.00M vm
-                   incr: 0.000 sys,  0.010 user,  2.72M sys,  0.00M vm
-                   accu: 0.000 sys,  0.010 user,  2.72M sys,  0.00M vm
-              accu incr: 0.000 sys,  0.010 user,  2.72M sys,  0.00M vm
+300 profile - 100
+          CPU/Mem usage: 0.010 sys,  0.040 user,  203.40M sys,  0.00M vm
+301 VC callback profile - scalar:0 vector:0
+302 Sat Sep 14 15:05:45 2024
+303 pliAppInit
+304 ndpGetenv(FSDB_FILE): /home/ord1nary/study/CPU_Project/sim/inter.fsdb
+305 ndpGetenv(FSDB_SVA_STATUS): 1
+306 *Verdi3* : FSDB_GATE is set.
+307 *Verdi3* : FSDB_RTL is set.
+308 *Verdi3* : Enable Parallel Dumping.
+309 pliAppMiscSet: New Sim Round
+310 pliEntryInit
+311 LIBSSCORE=found /media/ord1nary/Yes/SynopsysEDA/verdi2016/share/PLI/lib/LINUXAMD64/libsscore_vcs201606.so through $NOVAS_HOME setting.
+312 FSDB Dumper for VCS, Release Verdi3_L-2016.06-1, Linux x86_64/64bit, 07/10/2016
+313 (C) 1996 - 2016 by Synopsys, Inc.
+314 sps_tcl_fsdbDumpfile
+315 argv[0]: /home/ord1nary/study/CPU_Project/sim/inter.fsdb
+316 *Verdi3* : Create FSDB file '/home/ord1nary/study/CPU_Project/sim/inter.fsdb'
+317 sps_tcl_fsdbDumpflush
+318 *Verdi3* : Flush all FSDB Files at 0 ps.
+319 sps_tcl_fsdbDumpflush
+320 *Verdi3* : Flush all FSDB Files at 0 ps.
+321 sps_tcl_fsdbDumpvars
+322 argv[0]: 1
+323 argv[1]: tb.i_cpu_soc.i_cpu.i_registers.clk_i
+324 *Verdi3* : Dumping the signal (tb.i_cpu_soc.i_cpu.i_registers.clk_i).
+325 fsdbDumpvars traverse var: profile - 
+          CPU/Mem usage: 0.010 sys,  0.090 user,  317.47M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  5.15M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  5.15M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  5.15M sys,  0.00M vm
 
-          Count usage: 4096 var,  4096 idcode,  1 callback
-                 incr: 4096 var,  4096 idcode,  1 callback
-                 accu: 4096 var,  4096 idcode,  1 callback
-            accu incr: 4096 var,  4096 idcode,  1 callback
-329 VC callback profile - scalar:0 vector:0
-330 Fri Sep 13 11:53:49 2024
-331 fsdbDumpvars: profile - 
-          CPU/Mem usage: 0.020 sys,  0.090 user,  316.28M sys,  0.00M vm
-                   incr: 0.000 sys,  0.000 user,  1.19M sys,  0.00M vm
-                   accu: 0.000 sys,  0.010 user,  3.91M sys,  0.00M vm
-              accu incr: 0.000 sys,  0.000 user,  1.19M sys,  0.00M vm
+          Count usage: 1 var,  2 idcode,  1 callback
+                 incr: 1 var,  2 idcode,  1 callback
+                 accu: 1 var,  2 idcode,  1 callback
+            accu incr: 1 var,  2 idcode,  1 callback
+326 VC callback profile - scalar:0 vector:0
+327 Sat Sep 14 15:06:02 2024
+328 fsdbDumpvars: profile - 
+          CPU/Mem usage: 0.010 sys,  0.090 user,  318.52M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  1.05M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  6.21M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  1.05M sys,  0.00M vm
 
-          Count usage: 4096 var,  4096 idcode,  1 callback
+          Count usage: 1 var,  2 idcode,  1 callback
                  incr: 0 var,  0 idcode,  0 callback
-                 accu: 4096 var,  4096 idcode,  1 callback
+                 accu: 1 var,  2 idcode,  1 callback
             accu incr: 0 var,  0 idcode,  0 callback
-332 VC callback profile - scalar:0 vector:4096
-333 Fri Sep 13 11:53:49 2024
-334 sps_tcl_fsdbDumpflush
-335 *Verdi3* : Flush all FSDB Files at 0 ps.
-336 sps_tcl_fsdbDumpflush
-337 *Verdi3* : Flush all FSDB Files at 1,155,000 ps.
-338 End of simulation at 1155000
-339 VC callback profile - scalar:0 vector:4110
-340 Fri Sep 13 11:54:01 2024
-341 Parallel profile    -  Flush:7 Expand:0 ProduceWait:0 ConsumerWait:0 BlockUsed:0
-342                        ProduceTime:0.220750218 ConsumerTime:0.000000000 Buffer:64MB
-343 SimExit
-344 Sim process exit
+329 VC callback profile - scalar:1 vector:0
+330 Sat Sep 14 15:06:02 2024
+331 sps_tcl_fsdbDumpflush
+332 *Verdi3* : Flush all FSDB Files at 0 ps.
+333 sps_tcl_fsdbDumpvars
+334 argv[0]: 1
+335 argv[1]: tb.i_cpu_soc.i_cpu.i_registers.rstn_i
+336 *Verdi3* : Dumping the signal (tb.i_cpu_soc.i_cpu.i_registers.rstn_i).
+337 fsdbDumpvars traverse var: profile - 
+          CPU/Mem usage: 0.010 sys,  0.090 user,  320.27M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+
+          Count usage: 2 var,  4 idcode,  2 callback
+                 incr: 1 var,  2 idcode,  1 callback
+                 accu: 1 var,  2 idcode,  1 callback
+            accu incr: 1 var,  2 idcode,  1 callback
+338 VC callback profile - scalar:1 vector:0
+339 Sat Sep 14 15:06:02 2024
+340 fsdbDumpvars: profile - 
+          CPU/Mem usage: 0.010 sys,  0.090 user,  320.27M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+
+          Count usage: 2 var,  4 idcode,  2 callback
+                 incr: 0 var,  0 idcode,  0 callback
+                 accu: 1 var,  2 idcode,  1 callback
+            accu incr: 0 var,  0 idcode,  0 callback
+341 VC callback profile - scalar:2 vector:0
+342 Sat Sep 14 15:06:02 2024
+343 sps_tcl_fsdbDumpflush
+344 *Verdi3* : Flush all FSDB Files at 0 ps.
+345 sps_tcl_fsdbDumpvars
+346 argv[0]: 1
+347 argv[1]: tb.i_cpu_soc.i_cpu.i_registers.regfile
+348 *Verdi3* : Dumping the signal (tb.i_cpu_soc.i_cpu.i_registers.regfile).
+349 fsdbDumpvars traverse var: profile - 
+          CPU/Mem usage: 0.010 sys,  0.090 user,  320.30M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  0.03M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  0.03M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  0.03M sys,  0.00M vm
+
+          Count usage: 33 var,  35 idcode,  3 callback
+                 incr: 31 var,  31 idcode,  1 callback
+                 accu: 31 var,  31 idcode,  1 callback
+            accu incr: 31 var,  31 idcode,  1 callback
+350 VC callback profile - scalar:2 vector:0
+351 Sat Sep 14 15:06:02 2024
+352 fsdbDumpvars: profile - 
+          CPU/Mem usage: 0.010 sys,  0.090 user,  320.30M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  0.03M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
+
+          Count usage: 33 var,  35 idcode,  3 callback
+                 incr: 0 var,  0 idcode,  0 callback
+                 accu: 31 var,  31 idcode,  1 callback
+            accu incr: 0 var,  0 idcode,  0 callback
+353 VC callback profile - scalar:2 vector:31
+354 Sat Sep 14 15:06:02 2024
+355 sps_tcl_fsdbDumpflush
+356 *Verdi3* : Flush all FSDB Files at 0 ps.
+357 sps_tcl_fsdbDumpflush
+358 *Verdi3* : Flush all FSDB Files at 10,195,000 ps.
+359 End of simulation at 10195000
+360 VC callback profile - scalar:2044 vector:136
+361 Sat Sep 14 15:06:27 2024
+362 Parallel profile    -  Flush:11 Expand:0 ProduceWait:0 ConsumerWait:0 BlockUsed:0
+363                        ProduceTime:0.247776409 ConsumerTime:0.000000000 Buffer:64MB
+364 SimExit
+365 Sim process exit

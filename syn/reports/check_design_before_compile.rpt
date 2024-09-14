@@ -2,7 +2,7 @@
 ****************************************
 check_design summary:
 Version:     L-2016.03-SP1
-Date:        Fri Sep 13 21:48:40 2024
+Date:        Sat Sep 14 15:06:50 2024
 ****************************************
 
                    Name                                            Total
@@ -14,8 +14,8 @@ Cells                                                               9
     Cells do not drive (LINT-1)                                     9
 --------------------------------------------------------------------------------
 
-Warning: In design 'ifu', cell 'B_17' does not drive any nets. (LINT-1)
-Warning: In design 'ifu', cell 'B_18' does not drive any nets. (LINT-1)
+Warning: In design 'ifu', cell 'B_19' does not drive any nets. (LINT-1)
+Warning: In design 'ifu', cell 'B_20' does not drive any nets. (LINT-1)
 Warning: In design 'alu', cell 'B_12' does not drive any nets. (LINT-1)
 Warning: In design 'alu', cell 'B_13' does not drive any nets. (LINT-1)
 Warning: In design 'alu', cell 'B_14' does not drive any nets. (LINT-1)

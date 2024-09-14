@@ -1,7 +1,7 @@
 rc file Version 1.0
 
 [Design]
-COMPILE_PATH=/home/ord1nary/study/DigitalLogic_CPUDesign/sc_cpu/sim
+COMPILE_PATH=/home/ord1nary/study/CPU_Project/sim
 SystemC=FALSE
 UUM=FALSE
 KDB=TRUE

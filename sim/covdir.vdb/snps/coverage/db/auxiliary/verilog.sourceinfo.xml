@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE cov SYSTEM "ucdb_srcinfo.dtd">
-  <srcinfo name="/home/ord1nary/study/DigitalLogic_CPUDesign/sc_cpu/sim"  >
+  <srcinfo name="/home/ord1nary/study/CPU_Project/sim"  >
     <ucapi_version  major_ver="13"  minor_ver="1"  patch_str="L-2016.06"  />
       <fileinfo name="./uvm/src/uvm.sv"  id="0"  />
       <fileinfo name="./uvm/src/uvm_pkg.sv"  id="1"  />

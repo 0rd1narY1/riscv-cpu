@@ -54,7 +54,7 @@ module ifu(
         end 
     end 
     /* Update PC */
-    always @(posedge clk_i, negedge rstn_i) begin 
+    always @(posedge clk_i) begin 
         if(!rstn_i) 
             pc_o <= 32'h00000000;
         else 

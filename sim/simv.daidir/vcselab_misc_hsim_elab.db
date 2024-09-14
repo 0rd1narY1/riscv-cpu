@@ -1,6 +1,6 @@
 psSimBaseName                      	simv
 psLogFileName                      	NULL
-pDaiDir                            	/home/ord1nary/study/DigitalLogic_CPUDesign/sc_cpu/sim/simv.daidir
+pDaiDir                            	/home/ord1nary/study/CPU_Project/sim/simv.daidir
 destPath                           	csrc/
 fSharedMaster                      	0
 hsMainFileCount                    	0

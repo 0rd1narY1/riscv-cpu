@@ -1,0 +1,17 @@
+addi    sp,sp,-32
+sw      ra,28(sp)
+sw      s0,24(sp)
+addi    s0,sp,32
+li      a5,10
+sh      a5,-18(s0)
+li      a5,10
+sh      a5,-20(s0)
+lh      a4,-18(s0)
+lhu     a5,-20(s0)
+add     a5,a4,a5
+sw      a5,-24(s0)
+li      a5,0
+mv      a0,a5
+lw      ra,28(sp)
+lw      s0,24(sp)
+addi    sp,sp,32

@@ -9,14 +9,29 @@
         "hEeZs",
         "module"
     ],
+    "uvm_pkg": [
+        "uvm_pkg",
+        "zr7M1",
+        "module"
+    ],
+    "memory": [
+        "memory",
+        "DhPSm",
+        "module"
+    ],
+    "...MASTER...": [
+        "SIM",
+        "amcQw",
+        "module"
+    ],
     "_vcs_unit__1799355081": [
         "_vcs_unit__1799355081",
         "NcV53",
         "module"
     ],
-    "tb": [
-        "tb",
-        "g7hgQ",
+    "std": [
+        "std",
+        "reYIK",
         "module"
     ],
     "my_if": [
@@ -29,19 +44,9 @@
         "GsS9E",
         "module"
     ],
-    "std": [
-        "std",
-        "reYIK",
-        "module"
-    ],
-    "uvm_pkg": [
-        "uvm_pkg",
-        "zr7M1",
-        "module"
-    ],
-    "...MASTER...": [
-        "SIM",
-        "amcQw",
+    "tb": [
+        "tb",
+        "g7hgQ",
         "module"
     ]
 }

@@ -22,12 +22,12 @@ always #5 clk = ~clk;
 /* Read instrutions from text */
 integer i;
 initial begin 
-    clk = 0; rstn = 0; //input_if.mem_wen_if = 0;
+    clk = 0; rstn = 0; input_if.mem_wen_if = 0;
     //$readmemh("../app/txt/bubble_sort.txt",insn_reg);
     //for(i=0;i<20;i=i+1)
     //    $display("%h",insn_reg[i]);
     //#20 input_if.mem_wen_if = 1;
-    #50 rstn = 1;
+    #1000 rstn = 1;
     //#10000 $finish; 
 end 
 

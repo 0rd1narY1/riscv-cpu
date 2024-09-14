@@ -6,7 +6,7 @@ Report : timing
         -max_paths 1
 Design : cpu
 Version: L-2016.03-SP1
-Date   : Fri Sep 13 21:48:51 2024
+Date   : Sat Sep 14 15:07:01 2024
 ****************************************
 
  # A fanout number of 1000 was used for high fanout net computations.
@@ -34,61 +34,60 @@ Wire Load Model Mode: top
   i_decoder/rs2_o[0] (decoder)                            0.00       7.11 r
   i_registers/rb_i[0] (regfile_ADDR_WIDTH5_DATA_WIDTH32)
                                                           0.00       7.11 r
-  i_registers/U1150/Z (IVP)                               0.47       7.58 f
+  i_registers/U1152/Z (IVP)                               0.47       7.58 f
   i_registers/U1010/Z (NR3)                              20.75      28.33 r
   i_registers/U1008/Y (IVDA)                              0.72      29.05 f
-  i_registers/U2692/Z (IV)                               10.71      39.76 r
-  i_registers/U2053/Z (AO2)                               0.70      40.46 f
-  i_registers/U2057/Z (ND4)                               1.05      41.50 r
-  i_registers/U2063/Z (AO2)                               0.70      42.20 f
-  i_registers/U1033/Z (AN2P)                              0.94      43.14 f
-  i_registers/U1156/Z (NR2)                               2.11      45.25 r
-  i_registers/data_b_o[3] (regfile_ADDR_WIDTH5_DATA_WIDTH32)
-                                                          0.00      45.25 r
-  U205/Z (AO2)                                            0.78      46.03 f
-  U204/Z (IVP)                                            3.60      49.64 r
-  i_alu/B[3] (alu)                                        0.00      49.64 r
-  i_alu/add_13/B[3] (alu_DW01_add_0)                      0.00      49.64 r
-  i_alu/add_13/U1_3/CO (FA1A)                             2.44      52.08 r
-  i_alu/add_13/U1_4/CO (FA1A)                             1.34      53.42 r
-  i_alu/add_13/U1_5/CO (FA1A)                             1.34      54.77 r
-  i_alu/add_13/U1_6/CO (FA1A)                             1.34      56.11 r
-  i_alu/add_13/U1_7/CO (FA1A)                             1.34      57.46 r
-  i_alu/add_13/U1_8/CO (FA1A)                             1.34      58.80 r
-  i_alu/add_13/U1_9/CO (FA1A)                             1.34      60.14 r
-  i_alu/add_13/U1_10/CO (FA1A)                            1.34      61.49 r
-  i_alu/add_13/U1_11/CO (FA1A)                            1.34      62.83 r
-  i_alu/add_13/U1_12/CO (FA1A)                            1.34      64.18 r
-  i_alu/add_13/U1_13/CO (FA1A)                            1.34      65.52 r
-  i_alu/add_13/U1_14/CO (FA1A)                            1.34      66.86 r
-  i_alu/add_13/U1_15/CO (FA1A)                            1.34      68.21 r
-  i_alu/add_13/U1_16/CO (FA1A)                            1.34      69.55 r
-  i_alu/add_13/U1_17/CO (FA1A)                            1.34      70.90 r
-  i_alu/add_13/U1_18/CO (FA1A)                            1.34      72.24 r
-  i_alu/add_13/U1_19/CO (FA1A)                            1.34      73.58 r
-  i_alu/add_13/U1_20/CO (FA1A)                            1.34      74.93 r
-  i_alu/add_13/U1_21/CO (FA1A)                            1.34      76.27 r
-  i_alu/add_13/U1_22/CO (FA1A)                            1.34      77.62 r
-  i_alu/add_13/U1_23/CO (FA1A)                            1.34      78.96 r
-  i_alu/add_13/U1_24/CO (FA1A)                            1.34      80.30 r
-  i_alu/add_13/U1_25/CO (FA1A)                            1.34      81.65 r
-  i_alu/add_13/U1_26/CO (FA1A)                            1.34      82.99 r
-  i_alu/add_13/U1_27/CO (FA1A)                            1.34      84.34 r
-  i_alu/add_13/U1_28/CO (FA1A)                            1.34      85.68 r
-  i_alu/add_13/U1_29/CO (FA1A)                            1.34      87.02 r
-  i_alu/add_13/U1_30/CO (FA1A)                            1.34      88.37 r
-  i_alu/add_13/U1_31/Z (EO3P)                             1.87      90.24 r
-  i_alu/add_13/SUM[31] (alu_DW01_add_0)                   0.00      90.24 r
-  i_alu/U66/Z (ND2)                                       0.37      90.61 f
-  i_alu/U63/Z (ND4)                                       1.36      91.97 r
-  i_alu/ALUOut[31] (alu)                                  0.00      91.97 r
-  U268/Z (AO2)                                            0.78      92.75 f
-  U267/Z (IVP)                                            0.54      93.29 r
+  i_registers/U2693/Z (IV)                               11.99      41.04 r
+  i_registers/U2075/Z (AO2)                               0.70      41.74 f
+  i_registers/U2079/Z (ND4)                               1.05      42.78 r
+  i_registers/U2085/Z (AO2)                               0.70      43.48 f
+  i_registers/U1039/Z (AN2P)                              0.94      44.42 f
+  i_registers/U1165/Z (NR2)                               2.11      46.53 r
+  i_registers/data_b_o[4] (regfile_ADDR_WIDTH5_DATA_WIDTH32)
+                                                          0.00      46.53 r
+  U214/Z (AO2)                                            0.78      47.31 f
+  U213/Z (IVP)                                            3.86      51.17 r
+  i_alu/B[4] (alu)                                        0.00      51.17 r
+  i_alu/add_13/B[4] (alu_DW01_add_0)                      0.00      51.17 r
+  i_alu/add_13/U1_4/CO (FA1A)                             2.44      53.62 r
+  i_alu/add_13/U1_5/CO (FA1A)                             1.34      54.96 r
+  i_alu/add_13/U1_6/CO (FA1A)                             1.34      56.30 r
+  i_alu/add_13/U1_7/CO (FA1A)                             1.34      57.65 r
+  i_alu/add_13/U1_8/CO (FA1A)                             1.34      58.99 r
+  i_alu/add_13/U1_9/CO (FA1A)                             1.34      60.34 r
+  i_alu/add_13/U1_10/CO (FA1A)                            1.34      61.68 r
+  i_alu/add_13/U1_11/CO (FA1A)                            1.34      63.03 r
+  i_alu/add_13/U1_12/CO (FA1A)                            1.34      64.37 r
+  i_alu/add_13/U1_13/CO (FA1A)                            1.34      65.71 r
+  i_alu/add_13/U1_14/CO (FA1A)                            1.34      67.06 r
+  i_alu/add_13/U1_15/CO (FA1A)                            1.34      68.40 r
+  i_alu/add_13/U1_16/CO (FA1A)                            1.34      69.75 r
+  i_alu/add_13/U1_17/CO (FA1A)                            1.34      71.09 r
+  i_alu/add_13/U1_18/CO (FA1A)                            1.34      72.43 r
+  i_alu/add_13/U1_19/CO (FA1A)                            1.34      73.78 r
+  i_alu/add_13/U1_20/CO (FA1A)                            1.34      75.12 r
+  i_alu/add_13/U1_21/CO (FA1A)                            1.34      76.47 r
+  i_alu/add_13/U1_22/CO (FA1A)                            1.34      77.81 r
+  i_alu/add_13/U1_23/CO (FA1A)                            1.34      79.15 r
+  i_alu/add_13/U1_24/CO (FA1A)                            1.34      80.50 r
+  i_alu/add_13/U1_25/CO (FA1A)                            1.34      81.84 r
+  i_alu/add_13/U1_26/CO (FA1A)                            1.34      83.19 r
+  i_alu/add_13/U1_27/CO (FA1A)                            1.34      84.53 r
+  i_alu/add_13/U1_28/CO (FA1A)                            1.34      85.87 r
+  i_alu/add_13/U1_29/CO (FA1A)                            1.34      87.22 r
+  i_alu/add_13/U1_30/CO (FA1A)                            1.34      88.56 r
+  i_alu/add_13/U1_31/Z (EO3P)                             1.87      90.43 r
+  i_alu/add_13/SUM[31] (alu_DW01_add_0)                   0.00      90.43 r
+  i_alu/U94/Z (ND2)                                       0.37      90.80 f
+  i_alu/U91/Z (ND4)                                       1.36      92.16 r
+  i_alu/ALUOut[31] (alu)                                  0.00      92.16 r
+  U270/Z (AO2)                                            0.78      92.94 f
+  U269/Z (IVP)                                            0.54      93.49 r
   i_registers/wdata_i[31] (regfile_ADDR_WIDTH5_DATA_WIDTH32)
-                                                          0.00      93.29 r
-  i_registers/U1018/Z (AN2P)                              5.52      98.81 r
-  i_registers/regfile_reg[1][31]/D (FDS2L)                0.00      98.81 r
-  data arrival time                                                 98.81
+                                                          0.00      93.49 r
+  i_registers/U1018/Z (AN2P)                              5.52      99.00 r
+  i_registers/regfile_reg[1][31]/D (FDS2L)                0.00      99.00 r
+  data arrival time                                                 99.00
 
   clock clk (rise edge)                                 100.00     100.00
   clock network delay (ideal)                             2.00     102.00
@@ -98,9 +97,9 @@ Wire Load Model Mode: top
   data required time                                                99.20
   --------------------------------------------------------------------------
   data required time                                                99.20
-  data arrival time                                                -98.81
+  data arrival time                                                -99.00
   --------------------------------------------------------------------------
-  slack (MET)                                                        0.39
+  slack (MET)                                                        0.20
 
 
 1

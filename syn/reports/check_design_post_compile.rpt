@@ -2,15 +2,15 @@
 ****************************************
 check_design summary:
 Version:     L-2016.03-SP1
-Date:        Fri Sep 13 21:48:51 2024
+Date:        Sat Sep 14 15:07:01 2024
 ****************************************
 
                    Name                                            Total
 --------------------------------------------------------------------------------
-Inputs/Outputs                                                     56
+Inputs/Outputs                                                     57
     Unconnected ports (LINT-28)                                    21
     Feedthrough (LINT-29)                                          34
-    Shorted outputs (LINT-31)                                       1
+    Shorted outputs (LINT-31)                                       2
 
 Cells                                                              17
     Connected to power or ground (LINT-32)                         14
@@ -73,6 +73,7 @@ Warning: In design 'decoder', input port 'insn_i[1]' is connected directly to ou
 Warning: In design 'decoder', input port 'insn_i[0]' is connected directly to output port 'opcode_o[0]'. (LINT-29)
 Warning: In design 'alu_DW_rash_0', input port 'A[31]' is connected directly to output port 'B[31]'. (LINT-29)
 Warning: In design 'decoder', output port 'funct7_o[6]' is connected directly to output port 'imm_o[31]'. (LINT-31)
+Warning: In design 'ctrlu', output port 'jump_o' is connected directly to output port 'ext_op_o[2]'. (LINT-31)
 Warning: In design 'ifu', a pin on submodule 'add_52' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'CI' is connected to logic 0. 
 Warning: In design 'ifu', a pin on submodule 'add_50' is connected to logic 1 or logic 0. (LINT-32)

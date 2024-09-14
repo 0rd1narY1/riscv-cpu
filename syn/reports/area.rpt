@@ -3,28 +3,28 @@
 Report : area
 Design : cpu
 Version: L-2016.03-SP1
-Date   : Fri Sep 13 21:48:51 2024
+Date   : Sat Sep 14 15:07:01 2024
 ****************************************
 
 Library(s) Used:
 
     lsi_10k (File: /media/ord1nary/Yes/SynopsysEDA/designcompiler2016/libraries/syn/lsi_10k.db)
 
-Number of ports:                         1342
-Number of nets:                          6910
-Number of cells:                         5533
-Number of combinational cells:           3474
-Number of sequential cells:              2045
+Number of ports:                         1348
+Number of nets:                          6904
+Number of cells:                         5522
+Number of combinational cells:           3480
+Number of sequential cells:              2028
 Number of macros/black boxes:               0
-Number of buf/inv:                        460
-Number of references:                       9
+Number of buf/inv:                        458
+Number of references:                      11
 
-Combinational area:               7045.000000
-Buf/Inv area:                      460.000000
-Noncombinational area:           10298.000000
+Combinational area:               7054.000000
+Buf/Inv area:                      458.000000
+Noncombinational area:           10149.000000
 Macro/Black Box area:                0.000000
 Net Interconnect area:      undefined  (Wire load has zero net area)
 
-Total cell area:                 17343.000000
+Total cell area:                 17203.000000
 Total area:                 undefined
 1
