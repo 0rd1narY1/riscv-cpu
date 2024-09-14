@@ -1,0 +1,8 @@
+/home/study/CPU_Project/src/cpu_soc.v
+/home/study/CPU_Project/src/cpu.v
+/home/study/CPU_Project/src/alu/alu.v
+/home/study/CPU_Project/src/ifu/ifu.v 
+/home/study/CPU_Project/src/decoder/decoder.v
+/home/study/CPU_Project/src/regfile/regfile.v
+/home/study/CPU_Project/src/regfile/memory.v
+/home/study/CPU_Project/src/ctrl_unit/ctrlu.v

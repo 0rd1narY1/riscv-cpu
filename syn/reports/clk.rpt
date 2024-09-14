@@ -1,0 +1,20 @@
+ 
+****************************************
+Report : clocks
+Design : cpu
+Version: L-2016.03-SP1
+Date   : Fri Sep 13 21:48:51 2024
+****************************************
+
+Attributes:
+    d - dont_touch_network
+    f - fix_hold
+    p - propagated_clock
+    G - generated_clock
+    g - lib_generated_clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+clk            100.00   {0 20}                        {clk_i}
+--------------------------------------------------------------------------------
+1

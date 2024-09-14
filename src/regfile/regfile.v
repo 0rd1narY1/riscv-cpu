@@ -19,7 +19,7 @@ module regfile #(parameter ADDR_WIDTH = 0, DATA_WIDTH = 32)(
     integer i;
 	always @(posedge clk_i) begin
         if(!rstn_i) begin 
-            for(i=0;i<32;i=i+1)
+            for(i=1;i<32;i=i+1)
                 regfile[i] <= 32'b0;
         end 
 		else if(we_i && (rw_i != 5'b0)) //Can't write to x0
