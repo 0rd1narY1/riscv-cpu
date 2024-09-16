@@ -2,12 +2,13 @@ UVM_HOME = ./uvm
 SRC = my_driver.sv \
 	  ../src/cpu_soc.v \
 	  ../src/cpu.v \
-	  ../src/ifu/ifu.v \
+	  ../src/IFU/ifu.v \
 	  ../src/ctrl_unit/ctrlu.v \
-	  ../src/decoder/decoder.v \
+	  ../src/IDU/decoder.v \
 	  ../src/regfile/regfile.v \
 	  ../src/regfile/memory.v \
-	  ../src/alu/alu.v \
+	  ../src/EXU/alu.v \
+	  ../src/LSU/lsu.v \
 	  testbench.sv
 
 VCS_OUTPUT = csrc DVEfiles inter.vpd simv.daidir ucli.key simv

@@ -2037,12 +2037,22 @@ void  hsM_3_1__simv_daidir (UB  * pcode, scalar  val, U  I643, scalar  * I1111, 
 void  hsM_3_2__simv_daidir (UB  * pcode);
 void  hsM_3_11__simv_daidir (UB  * pcode, scalar  val);
 void  hsM_4_0__simv_daidir (UB  * pcode, scalar  val);
+void  hsM_4_1__simv_daidir (UB  * pcode, scalar  val, U  I643, scalar  * I1111, U  did);
+void  hsM_4_2__simv_daidir (UB  * pcode);
+void  hsM_4_11__simv_daidir (UB  * pcode, scalar  val);
 void  hsM_5_0__simv_daidir (UB  * pcode, scalar  val);
-void  hsM_5_1__simv_daidir (UB  * pcode, scalar  val, U  I643, scalar  * I1111, U  did);
-void  hsM_5_2__simv_daidir (UB  * pcode);
-void  hsM_5_11__simv_daidir (UB  * pcode, scalar  val);
-void  hsM_15_0__simv_daidir (UB  * pcode, scalar  val);
-void  hsM_15_11__simv_daidir (UB  * pcode, scalar  val);
+void  hsM_6_0__simv_daidir (UB  * pcode, scalar  val);
+void  hsM_6_1__simv_daidir (UB  * pcode, scalar  val, U  I643, scalar  * I1111, U  did);
+void  hsM_6_2__simv_daidir (UB  * pcode);
+void  hsM_6_11__simv_daidir (UB  * pcode, scalar  val);
+void  hsM_7_0__simv_daidir (UB  * pcode, scalar  val);
+void  hsM_7_1__simv_daidir (UB  * pcode, scalar  val, U  I643, scalar  * I1111, U  did);
+void  hsM_7_2__simv_daidir (UB  * pcode);
+void  hsM_7_11__simv_daidir (UB  * pcode, scalar  val);
+void  hsM_8_0__simv_daidir (UB  * pcode, scalar  val);
+void  hsM_8_1__simv_daidir (UB  * pcode, scalar  val, U  I643, scalar  * I1111, U  did);
+void  hsM_8_2__simv_daidir (UB  * pcode);
+void  hsM_8_11__simv_daidir (UB  * pcode, scalar  val);
 void  hsG_0 (struct dummyq_struct * I1093, EBLK  * I1094, U  I651);
 #ifdef __cplusplus
 }

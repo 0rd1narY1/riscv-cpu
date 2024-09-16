@@ -3,7 +3,7 @@
 module cpu_soc(
     input clk_i,
     input rstn_i,
-    input [3:0]insn_mem_wen_i,      //Instructions memory write enable
+    input insn_mem_wen_i,           //Instructions memory write enable
     input [11:0]insn_mem_waddr_i,   //Instructions memory write address
     input [31:0]insn_i,             //Instructions read from text
     output ebreak_o                 //Ebreak signal
@@ -13,7 +13,7 @@ module cpu_soc(
     wire [31:0]pc;
     wire [31:0]insn;
     wire [31:0]data_to_cpu, data_from_cpu;
-    wire [3:0]data_mem_wr_ctrl;
+    wire data_mem_wr_ctrl;
     wire [11:0]data_addr;
     wire ebreak;
 
@@ -22,8 +22,8 @@ module cpu_soc(
         .clk_i(clk_i),
         .rstn_i(rstn_i),
         .insn_i(insn),
-        .data_i(data_to_cpu),
         .pc_o(pc),
+        .data_i(data_to_cpu),
         .data_o(data_from_cpu),
         .mem_wr_o(data_mem_wr_ctrl),
         .data_addr_o(data_addr),
@@ -36,7 +36,7 @@ module cpu_soc(
     memory #(.ADDR_WIDTH(12), .DATA_WIDTH(32))
         i_insn_mem(
             .clk_i(clk_i),
-            .rw_ctrl_i(insn_mem_wen_i),
+            .mem_wr_i(insn_mem_wen_i),
             .waddr_i(insn_mem_waddr_i),
             .raddr_i(pc[13:2]),
             .wdata_i(insn_i),
@@ -47,9 +47,9 @@ module cpu_soc(
     memory #(.ADDR_WIDTH(12), .DATA_WIDTH(32))
         i_data_mem(
             .clk_i(clk_i),
-            .rw_ctrl_i(data_mem_wr_ctrl),
-            .waddr_i(data_addr),
-            .raddr_i(data_addr),
+            .mem_wr_i(data_mem_wr_ctrl),
+            .waddr_i(data_addr>>2),
+            .raddr_i(data_addr>>2),
             .wdata_i(data_from_cpu),
             .data_o(data_to_cpu)
         );

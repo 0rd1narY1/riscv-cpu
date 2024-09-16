@@ -21,6 +21,7 @@ module regfile #(parameter ADDR_WIDTH = 0, DATA_WIDTH = 32)(
         if(!rstn_i) begin 
             for(i=1;i<32;i=i+1)
                 regfile[i] <= 32'b0;
+            regfile[2] <= 32'h00003ffc; //sp
         end 
 		else if(we_i && (rw_i != 5'b0)) //Can't write to x0
 			regfile[rw_i] <= wdata_i;

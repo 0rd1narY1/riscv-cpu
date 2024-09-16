@@ -1,0 +1,85 @@
+{
+    "Modules": {
+        "...MASTER...": {},
+        "uvm_pkg": {
+            "Compiled": "Yes",
+            "Compiled Times": 25
+        },
+        "vcs_paramclassrepository": {
+            "Compiled": "Yes",
+            "Compiled Times": 25
+        },
+        "_vcs_DPI_package": {
+            "Compiled": "Yes",
+            "Compiled Times": 25
+        },
+        "my_if": {
+            "Compiled": "Yes",
+            "Compiled Times": 25
+        },
+        "cpu_soc": {
+            "Compiled": "Yes",
+            "Compiled Times": 25
+        },
+        "_vcs_unit__2582672199": {
+            "Compiled": "Yes",
+            "Compiled Times": 25
+        },
+        "std": {
+            "Compiled": "Yes",
+            "Compiled Times": 25
+        },
+        "tb": {
+            "Compiled": "Yes",
+            "Compiled Times": 25
+        }
+    },
+    "CompUnits": {
+        "GsS9E_d": {
+            "mod": "cpu_soc",
+            "out": "GsS9E_d.o",
+            "bytes": 110613,
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.24/_68210_archive_1.a"
+        }
+    },
+    "reusePaths": {
+        "qKzhu_d": {
+            "icPath": "csrc"
+        },
+        "amcQw_d": {
+            "icPath": "csrc"
+        },
+        "hEeZs_d": {
+            "icPath": "csrc"
+        },
+        "uM9F1_d": {
+            "icPath": "csrc"
+        },
+        "reYIK_d": {
+            "icPath": "csrc"
+        },
+        "psjmn_d": {
+            "icPath": "csrc"
+        },
+        "g7hgQ_d": {
+            "icPath": "csrc"
+        },
+        "zr7M1_d": {
+            "icPath": "csrc"
+        }
+    },
+    "ObjArchives": [
+        {
+            "archive": "archive.24/_68210_archive_1.a",
+            "objects": [
+                [
+                    "GsS9E_d.o",
+                    110613
+                ]
+            ],
+            "size": 110613
+        }
+    ]
+}

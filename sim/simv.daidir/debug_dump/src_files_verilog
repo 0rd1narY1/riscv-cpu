@@ -178,11 +178,12 @@
 /home/ord1nary/study/CPU_Project/sim/uvm/src/uvm.sv
 /home/ord1nary/study/CPU_Project/sim/uvm/src/uvm_macros.svh
 /home/ord1nary/study/CPU_Project/sim/uvm/src/uvm_pkg.sv
-/home/ord1nary/study/CPU_Project/src/alu/alu.v
+/home/ord1nary/study/CPU_Project/src/EXU/alu.v
+/home/ord1nary/study/CPU_Project/src/IDU/decoder.v
+/home/ord1nary/study/CPU_Project/src/IFU/ifu.v
+/home/ord1nary/study/CPU_Project/src/LSU/lsu.v
 /home/ord1nary/study/CPU_Project/src/cpu.v
 /home/ord1nary/study/CPU_Project/src/cpu_soc.v
 /home/ord1nary/study/CPU_Project/src/ctrl_unit/ctrlu.v
-/home/ord1nary/study/CPU_Project/src/decoder/decoder.v
-/home/ord1nary/study/CPU_Project/src/ifu/ifu.v
 /home/ord1nary/study/CPU_Project/src/regfile/memory.v
 /home/ord1nary/study/CPU_Project/src/regfile/regfile.v

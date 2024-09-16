@@ -1,3 +1,2 @@
 Command Line: /media/ord1nary/Yes/SynopsysEDA/verdi2016/platform/LINUXAMD64/bin/Novas -i -simflow -simBin ./simv -simDelim +UVM_VERBOSITY=UVM_LOW -a vcs.log +UVM_VERDI_TRACE=UVM_AWARE+RAL+HIER+COMPWAVE +UVM_LOG_RECORD
 uname(Linux DellUbuntu 6.8.0-40-generic #40~22.04.3-Ubuntu SMP PREEMPT_DYNAMIC Tue Jul 30 17:30:19 UTC 2 x86_64)
-au time 44.084582 6.850086 2.093748 delta 269971456 269971456 total 594018304 594018304

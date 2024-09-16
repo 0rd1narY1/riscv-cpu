@@ -28,14 +28,14 @@ endclass
  
 task my_driver::main_phase(uvm_phase phase);
     `uvm_info("my_driver", "main phase is called", UVM_LOW)
-    vif.mem_wen_if             <= 4'b0010;
+    vif.mem_wen_if             <= 0;
     vif.mem_waddr_if           <= 0;
     vif.insn_if                <= 32'h0;
-    #20 vif.mem_wen_if         <= 4'b1010;
+    #20 vif.mem_wen_if         <= 1;
     seq_item_port.try_next_item(req); //向sequencer请求1个transaction 
     drive_insn_trans(req);
     seq_item_port.item_done();
-    #10 vif.mem_wen_if         <= 4'b0010;
+    #10 vif.mem_wen_if         <= 0;
 endtask
 
 task my_driver::drive_insn_trans(my_insn_transaction tr);

@@ -3,17 +3,21 @@
 module cpu(
     input clk_i,
     input rstn_i,
+    //ifu interfaces
     input [31:0]insn_i,         //Instructions from instructions memory
-    input [31:0]data_i,         //Data from data memory
     output [31:0]pc_o,
+    //lsu interfaces
+    input [31:0]data_i,         //Data from data memory
     output [31:0]data_o,        //Data to be written into data memory
-    output [3:0]mem_wr_o,            //Data memory read/write control
+    output mem_wr_o,       //Data memory read/write control
     output [11:0]data_addr_o,   //Data memory read/write address
+    //other interface
     output ebreak_o             //Ebreak signal
 );
 
-    /* Instructions Fetch ports */ 
+    /* Instructions Fetch ports */
     wire [31:0]pc;
+    wire [31:0]insn;
     /* Decoder ports */
     wire [6:0]opcode;
     wire [2:0]funct3;
@@ -39,6 +43,11 @@ module cpu(
     /* ALU ports */
     wire zero;
     wire [31:0]alu_out;
+    /*LSU ports*/
+    wire mem_wr_ctrl;       //Direct r/w control to data memory
+    wire [11:0]mem_data_addr;
+    wire [31:0]data_to_mem; //Data to be stored into memory
+    wire [31:0]data_mem_to_reg; //Memory data to be loaded into registers
 
     /* Instructions Fetch*/ 
     ifu i_ifu(
@@ -51,15 +60,17 @@ module cpu(
         .branch_i(branch),
         .zero_i(zero),
         .ALUctr_i(alu_ctr),
+        .insn_i(insn_i),
+        .pc_o(pc),
         .funct3_i(funct3),
-        .pc_o(pc)
+        .insn_o(insn)
     );
 
     assign pc_o = pc;
 
     /* Decoder */
     decoder i_decoder(
-        .insn_i(insn_i),
+        .insn_i(insn),
         .ext_op_i(ext_op),
         .opcode_o(opcode),
         .funct3_o(funct3),
@@ -88,7 +99,6 @@ module cpu(
         .ebreak_o(ebreak)
     );
 
-    assign mem_wr_o = mem_wr;
     assign ebreak_o = ebreak;
 
     /* Register Set */
@@ -123,7 +133,23 @@ module cpu(
        .ALUOut(alu_out)
     );
     
-    assign data_addr_o = alu_out; //ALU outputs Data Memory  R/W Address 
-    assign registers_wdata = mem_to_reg?data_i:alu_out;  //Select data to be written to register 
+
+    /*LSU*/
+    lsu i_lsu(
+        .clk_i(clk_i),
+        .rstn_i(rstn_i),
+        .rw_ctrl_i(mem_wr),
+        .alu_addr_i(alu_out),
+        .data_i(data_i),
+        .mem_wr_o(mem_wr_ctrl),
+        .data_addr_o(mem_data_addr),
+        .data_o(data_to_mem),
+        .data_reg_to_mem_i(rs2_data),
+        .data_mem_to_reg_o(data_mem_to_reg)
+    );
+    assign registers_wdata = mem_to_reg?data_mem_to_reg:alu_out;  //Select data to be written to register 
+    assign data_o = data_to_mem;         //Data to be written into data memory
+    assign mem_wr_o = mem_wr_ctrl;       //Data memory read/write control
+    assign data_addr_o = mem_data_addr;  //Data memory read/write address
 
 endmodule

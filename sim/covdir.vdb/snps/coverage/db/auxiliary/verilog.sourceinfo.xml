@@ -171,24 +171,25 @@
       <fileinfo name="./uvm/src/reg/sequences/uvm_reg_mem_hdl_paths_seq.svh"  id="166"  />
       <fileinfo name="../src/cpu_soc.v"  id="167"  />
       <fileinfo name="../src/cpu.v"  id="168"  />
-      <fileinfo name="../src/ifu/ifu.v"  id="169"  />
+      <fileinfo name="../src/IFU/ifu.v"  id="169"  />
       <fileinfo name="../src/ctrl_unit/ctrlu.v"  id="170"  />
-      <fileinfo name="../src/decoder/decoder.v"  id="171"  />
+      <fileinfo name="../src/IDU/decoder.v"  id="171"  />
       <fileinfo name="../src/regfile/regfile.v"  id="172"  />
       <fileinfo name="../src/regfile/memory.v"  id="173"  />
-      <fileinfo name="../src/alu/alu.v"  id="174"  />
-      <fileinfo name="testbench.sv"  id="175"  />
-      <fileinfo name="my_env.sv"  id="176"  />
-      <fileinfo name="my_agent.sv"  id="177"  />
-      <fileinfo name="my_driver.sv"  id="178"  />
-      <fileinfo name="my_insn_transaction.sv"  id="179"  />
-      <fileinfo name="my_sequencer.sv"  id="180"  />
-      <fileinfo name="my_sequence.sv"  id="181"  />
-      <fileinfo name="my_input_monitor.sv"  id="182"  />
-      <fileinfo name="my_output_monitor.sv"  id="183"  />
-      <fileinfo name="my_reg_transaction.sv"  id="184"  />
-      <fileinfo name="my_model.sv"  id="185"  />
-      <fileinfo name="my_scoreboard.sv"  id="186"  />
-      <fileinfo name="my_if.sv"  id="187"  />
-      <fileinfo name=""  id="188"  />
+      <fileinfo name="../src/EXU/alu.v"  id="174"  />
+      <fileinfo name="../src/LSU/lsu.v"  id="175"  />
+      <fileinfo name="testbench.sv"  id="176"  />
+      <fileinfo name="my_env.sv"  id="177"  />
+      <fileinfo name="my_agent.sv"  id="178"  />
+      <fileinfo name="my_driver.sv"  id="179"  />
+      <fileinfo name="my_insn_transaction.sv"  id="180"  />
+      <fileinfo name="my_sequencer.sv"  id="181"  />
+      <fileinfo name="my_sequence.sv"  id="182"  />
+      <fileinfo name="my_input_monitor.sv"  id="183"  />
+      <fileinfo name="my_output_monitor.sv"  id="184"  />
+      <fileinfo name="my_reg_transaction.sv"  id="185"  />
+      <fileinfo name="my_model.sv"  id="186"  />
+      <fileinfo name="my_scoreboard.sv"  id="187"  />
+      <fileinfo name="my_if.sv"  id="188"  />
+      <fileinfo name=""  id="189"  />
     </srcinfo>

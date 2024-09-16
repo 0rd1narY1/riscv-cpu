@@ -1,24 +1,164 @@
 debImport "-i" "-simflow" "-simBin" "./simv" "-simDelim" \
           "+UVM_VERBOSITY=UVM_LOW -a vcs.log +UVM_VERDI_TRACE=UVM_AWARE+RAL+HIER+COMPWAVE +UVM_LOG_RECORD"
 srcTBInvokeSim
-srcHBSelect "tb.i_cpu_soc.i_cpu.i_registers" -win $_nTrace1
-srcSetScope -win $_nTrace1 "tb.i_cpu_soc.i_cpu.i_registers" -delim "."
-srcDeselectAll -win $_nTrace1
-srcSelect -signal "clk_i" -win $_nTrace1
-srcSelect -signal "rstn_i" -win $_nTrace1
-srcSelect -signal "regfile" -win $_nTrace1
+srcHBSelect "tb.i_cpu_soc.i_data_mem" -win $_nTrace1
+srcSetScope -win $_nTrace1 "tb.i_cpu_soc.i_data_mem" -delim "."
 wvCreateWindow
+srcSelect -signal "memory" -win $_nTrace1
 srcAddSelectedToWave -win $_nTrace1
-verdiDockWidgetMaximize -dock windowDock_nWave_3
 srcTBRunSim
 verdiDockWidgetMaximize -dock windowDock_nWave_3
-wvSelectSignal -win $_nWave3 {( "G1" 3 )} 
-wvExpandBus -win $_nWave3 {("G1" 3)}
-wvSetCursor -win $_nWave3 1040982.764921 -snap {("G1" 20)}
-wvZoomIn -win $_nWave3
-wvZoomIn -win $_nWave3
-wvZoomIn -win $_nWave3
-wvZoomIn -win $_nWave3
-wvSetCursor -win $_nWave3 1104794.648295 -snap {("G1" 20)}
-wvSetCursor -win $_nWave3 1123033.267357 -snap {("G1" 20)}
-debExit
+wvSelectSignal -win $_nWave3 {( "G1" 1 )} 
+wvExpandBus -win $_nWave3 {("G1" 1)}
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvSetCursor -win $_nWave3 4556112.656147 -snap {("G1" 4078)}
+wvSelectSignal -win $_nWave3 {( "G1" 4075 )} 
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 2
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 49
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 27
+wvScrollUp -win $_nWave3 37
+wvScrollUp -win $_nWave3 43
+wvScrollUp -win $_nWave3 27
+wvScrollUp -win $_nWave3 11
+wvScrollUp -win $_nWave3 48
+wvScrollUp -win $_nWave3 33
+wvScrollUp -win $_nWave3 21
+wvScrollUp -win $_nWave3 11
+wvScrollUp -win $_nWave3 21
+wvScrollUp -win $_nWave3 22
+wvScrollUp -win $_nWave3 11
+wvScrollUp -win $_nWave3 10
+wvScrollUp -win $_nWave3 11
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 11
+wvScrollUp -win $_nWave3 11
+wvScrollUp -win $_nWave3 11
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 11
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 11
+wvScrollUp -win $_nWave3 11
+wvScrollUp -win $_nWave3 10
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 16
+wvScrollUp -win $_nWave3 11
+wvScrollUp -win $_nWave3 11
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 11
+wvScrollUp -win $_nWave3 11
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 11
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 11
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 11
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 10
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 5
+wvScrollDown -win $_nWave3 4
+wvScrollDown -win $_nWave3 6
+wvScrollDown -win $_nWave3 5
+wvScrollDown -win $_nWave3 6
+wvScrollDown -win $_nWave3 5
+wvScrollDown -win $_nWave3 5
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 5
+wvScrollUp -win $_nWave3 6
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvScrollDown -win $_nWave3 1
+wvScrollDown -win $_nWave3 1
+wvScrollDown -win $_nWave3 1
+wvScrollDown -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1
+wvScrollUp -win $_nWave3 1

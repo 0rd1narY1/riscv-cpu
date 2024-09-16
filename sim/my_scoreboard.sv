@@ -31,8 +31,10 @@ task my_scoreboard::main_phase(uvm_phase phase);
             act_port.get(get_actual);
             if(expect_queue.size() > 0)begin
                 tmp_tran = expect_queue.pop_front();
-                if(get_actual.compare(tmp_tran))
+                if(get_actual.compare(tmp_tran)) begin 
                     `uvm_info("my_scoreboard", "Compare SUCCESSFULLY", UVM_LOW)
+                    get_actual.print();
+                end
                 else begin
                     `uvm_error("my_scoreboard", "Compare FAILED")
                     $display("The Expected Values are:");
@@ -43,6 +45,7 @@ task my_scoreboard::main_phase(uvm_phase phase);
             end
             else begin
                 `uvm_error("my_scoreboard", "Expected Queue is EMPTY")
+                get_actual.print();
             end
         end
     join
