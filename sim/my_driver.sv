@@ -42,10 +42,10 @@ task my_driver::drive_insn_trans(my_insn_transaction tr);
     int i = 0;
     `uvm_info("my_driver", "drive_insn_trans is called", UVM_LOW)
     tr.print();
-    while(i < $size(tr.insn_reg)+1) begin 
+    while(i <= $size(tr.insn_reg)+1) begin 
         @(posedge vif.clk) begin 
             if(vif.mem_wen_if) begin 
-                vif.mem_waddr_if   = i-1; 
+                vif.mem_waddr_if   = i*4; 
                 vif.insn_if        = tr.insn_reg[i-1];
                 `uvm_info("my_driver", "data is drived", UVM_LOW);
                 i = i + 1;

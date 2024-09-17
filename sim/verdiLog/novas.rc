@@ -117,6 +117,7 @@ Branch = 1
 IfShowModule = {TRUE, FALSE}
 [DisabledMessages]
 version = Verdi3_L-2016.06-1
+152174613 = disabled
 [Editor]
 editorName = TurboEditor
 [Emacs]
@@ -224,7 +225,8 @@ Selection-LineWidth = 1
 Orientation = Landscape
 [Form]
 version = Verdi3_L-2016.06-1
-hb/compile.fm = 100,100,684,656
+hb/fileWithNote.fm = 100,100,490,542
+hb/compile.fm = 100,100,664,668
 [General]
 autoSaveSession = FALSE
 TclAutoSource = 
@@ -677,7 +679,7 @@ scope_to_save_with_macro
 open_file_dir
 open_rc_file_dir
 getSignalForm = 0 0 800 479 100 30 100 30
-viewPort = 0 28 1274 451 308 65
+viewPort = 0 28 1274 386 299 98
 signalSpacing = 5
 digitalSignalHeight = 15
 analogSignalHeight = 98
@@ -1414,7 +1416,7 @@ AddImportArgument = FALSE
 LineBreakWithScope = TRUE
 StopAfterCompileOption = -s
 [wave.0]
-viewPort = 0 28 1274 451 308 65
+viewPort = 0 28 1274 386 299 98
 [wave.1]
 viewPort = 127 219 960 332 100 65
 [wave.2]

@@ -1,0 +1,12 @@
+{
+    "reusePaths": {
+        "amcQw_d": {
+            "icPath": "csrc"
+        }
+    },
+    "CompUnits": {},
+    "Modules": {
+        "...MASTER...": {}
+    },
+    "ObjArchives": []
+}

@@ -9,7 +9,8 @@ module cpu(
     //lsu interfaces
     input [31:0]data_i,         //Data from data memory
     output [31:0]data_o,        //Data to be written into data memory
-    output mem_wr_o,       //Data memory read/write control
+    output mem_wr_o,            //Data memory read/write control
+    output [1:0]rwtype_o,        //Write data width type(4 bytes, 2 bytes, 1 bytes)
     output [11:0]data_addr_o,   //Data memory read/write address
     //other interface
     output ebreak_o             //Ebreak signal
@@ -142,6 +143,7 @@ module cpu(
         .alu_addr_i(alu_out),
         .data_i(data_i),
         .mem_wr_o(mem_wr_ctrl),
+        .rwtype_o(rwtype_o),
         .data_addr_o(mem_data_addr),
         .data_o(data_to_mem),
         .data_reg_to_mem_i(rs2_data),

@@ -1,22 +1,12 @@
 {
-    "tb": [
-        "tb",
-        "g7hgQ",
-        "module"
-    ],
     "_vcs_DPI_package": [
         "_vcs_DPI_package",
         "uM9F1",
         "module"
     ],
-    "my_if": [
-        "my_if",
-        "qKzhu",
-        "module"
-    ],
-    "uvm_pkg": [
-        "uvm_pkg",
-        "zr7M1",
+    "std": [
+        "std",
+        "reYIK",
         "module"
     ],
     "vcs_paramclassrepository": [
@@ -24,19 +14,34 @@
         "hEeZs",
         "module"
     ],
-    "cpu_soc": [
-        "cpu_soc",
-        "GsS9E",
-        "module"
-    ],
     "_vcs_unit__2582672199": [
         "_vcs_unit__2582672199",
         "psjmn",
         "module"
     ],
-    "std": [
-        "std",
-        "reYIK",
+    "uvm_pkg": [
+        "uvm_pkg",
+        "zr7M1",
+        "module"
+    ],
+    "cpu_soc": [
+        "cpu_soc",
+        "GsS9E",
+        "module"
+    ],
+    "memory": [
+        "memory",
+        "DhPSm",
+        "module"
+    ],
+    "my_if": [
+        "my_if",
+        "qKzhu",
+        "module"
+    ],
+    "tb": [
+        "tb",
+        "g7hgQ",
         "module"
     ],
     "...MASTER...": [

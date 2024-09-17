@@ -1,0 +1,92 @@
+{
+    "Modules": {
+        "cpu_soc": {
+            "Compiled": "Yes",
+            "Compiled Times": 14
+        },
+        "...MASTER...": {},
+        "vcs_paramclassrepository": {
+            "Compiled": "Yes",
+            "Compiled Times": 14
+        },
+        "_vcs_unit__2582672199": {
+            "Compiled": "Yes",
+            "Compiled Times": 14
+        },
+        "_vcs_DPI_package": {
+            "Compiled": "Yes",
+            "Compiled Times": 14
+        },
+        "std": {
+            "Compiled": "Yes",
+            "Compiled Times": 14
+        },
+        "uvm_pkg": {
+            "Compiled": "Yes",
+            "Compiled Times": 14
+        },
+        "memory": {
+            "Compiled": "Yes",
+            "Compiled Times": 14
+        },
+        "my_if": {
+            "Compiled": "Yes",
+            "Compiled Times": 14
+        },
+        "tb": {
+            "Compiled": "Yes",
+            "Compiled Times": 14
+        }
+    },
+    "reusePaths": {
+        "amcQw_d": {
+            "icPath": "csrc"
+        },
+        "GsS9E_d": {
+            "icPath": "csrc"
+        },
+        "uM9F1_d": {
+            "icPath": "csrc"
+        },
+        "zr7M1_d": {
+            "icPath": "csrc"
+        },
+        "psjmn_d": {
+            "icPath": "csrc"
+        },
+        "reYIK_d": {
+            "icPath": "csrc"
+        },
+        "DhPSm_d": {
+            "icPath": "csrc"
+        },
+        "qKzhu_d": {
+            "icPath": "csrc"
+        },
+        "g7hgQ_d": {
+            "icPath": "csrc"
+        }
+    },
+    "CompUnits": {
+        "hEeZs_d": {
+            "mod": "vcs_paramclassrepository",
+            "out": "hEeZs_d.o",
+            "bytes": 18070018,
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.15/_45652_archive_1.a"
+        }
+    },
+    "ObjArchives": [
+        {
+            "archive": "archive.15/_45652_archive_1.a",
+            "objects": [
+                [
+                    "hEeZs_d.o",
+                    18070018
+                ]
+            ],
+            "size": 18070018
+        }
+    ]
+}

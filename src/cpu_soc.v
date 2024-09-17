@@ -15,6 +15,7 @@ module cpu_soc(
     wire [31:0]data_to_cpu, data_from_cpu;
     wire data_mem_wr_ctrl;
     wire [11:0]data_addr;
+    wire [1:0]rwtype;
     wire ebreak;
 
     /* CPU Core */
@@ -26,6 +27,7 @@ module cpu_soc(
         .data_i(data_to_cpu),
         .data_o(data_from_cpu),
         .mem_wr_o(data_mem_wr_ctrl),
+        .rwtype_o(rwtype),
         .data_addr_o(data_addr),
         .ebreak_o(ebreak)
     );
@@ -37,8 +39,9 @@ module cpu_soc(
         i_insn_mem(
             .clk_i(clk_i),
             .mem_wr_i(insn_mem_wen_i),
+            .rwtype_i(2'b10), //32 bits instructions
             .waddr_i(insn_mem_waddr_i),
-            .raddr_i(pc[13:2]),
+            .raddr_i(pc[11:0]),
             .wdata_i(insn_i),
             .data_o(insn)
         );
@@ -48,8 +51,9 @@ module cpu_soc(
         i_data_mem(
             .clk_i(clk_i),
             .mem_wr_i(data_mem_wr_ctrl),
-            .waddr_i(data_addr>>2),
-            .raddr_i(data_addr>>2),
+            .rwtype_i(rwtype),
+            .waddr_i(data_addr),
+            .raddr_i(data_addr),
             .wdata_i(data_from_cpu),
             .data_o(data_to_cpu)
         );
