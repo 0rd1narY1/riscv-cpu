@@ -1,6 +1,4 @@
 module lsu(
-    input clk_i,
-    input rstn_i,
     //Interface with ctrlu
 	input [3:0]rw_ctrl_i, //[3] is r/w control signal, and [2:0] is r/w type control signal
     //Interface with alu
@@ -20,9 +18,21 @@ module lsu(
     
     assign mem_wr_o = rw_ctrl_i[3]; //1 for write and 0 for read
     assign data_addr_o = alu_addr_i[11:0];
-    /*Load*/
+    
     always @* begin 
-        if(!rw_ctrl_i[3])
+        ld_data = 32'b0;
+        st_data = 32'b0;
+        rwtype = 2'b0;
+        if(rw_ctrl_i[3]) begin //Store
+            st_data = data_reg_to_mem_i;
+		    case(rw_ctrl_i[2:0])
+			    3'b000:     rwtype = 2'b00; //sb 
+                3'b001:     rwtype = 2'b01; //sh
+                3'b010:     rwtype = 2'b10; //sw
+                default:    rwtype = 2'bxx;
+            endcase
+        end
+        else begin //Load
             case(rw_ctrl_i[2:0])
                 3'b000: begin 
                             rwtype  = 2'b00;
@@ -46,23 +56,10 @@ module lsu(
                         end
                 default: begin rwtype = 2'bxx; ld_data = 32'bx; end
             endcase
+        end
     end 
-	assign data_mem_to_reg_o = ld_data;
 
-    /*Write*/
-	always @* begin
-        if(!rstn_i)
-            st_data = 32'b0;
-        else
-            if(rw_ctrl_i[3])
-                st_data = data_reg_to_mem_i;
-		        case(rw_ctrl_i[2:0])
-			        3'b000:     rwtype = 2'b00; //sb 
-                    3'b001:     rwtype = 2'b01; //sh
-                    3'b010:     rwtype = 2'b10; //sw
-                    default:    rwtype = 2'b10;
-                endcase
-	end
+	assign data_mem_to_reg_o = ld_data;
     assign data_o = st_data;
     assign rwtype_o = rwtype;
 

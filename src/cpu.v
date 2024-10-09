@@ -49,6 +49,10 @@ module cpu(
     wire [11:0]mem_data_addr;
     wire [31:0]data_to_mem; //Data to be stored into memory
     wire [31:0]data_mem_to_reg; //Memory data to be loaded into registers
+    /*Internal Buses*/
+    wire ifu_valid;
+    wire idu_valid, idu_ready;
+    wire exu_ready;
 
     /* Instructions Fetch*/ 
     ifu i_ifu(
@@ -64,14 +68,22 @@ module cpu(
         .insn_i(insn_i),
         .pc_o(pc),
         .funct3_i(funct3),
+        .idu_ready_i(idu_ready),
+        .ifu_valid_o(ifu_valid),
         .insn_o(insn)
     );
 
     assign pc_o = pc;
-
+    assign exu_ready = 1;
     /* Decoder */
     decoder i_decoder(
+        .clk_i(clk_i),
+        .rstn_i(rstn_i),
         .insn_i(insn),
+        .ifu_valid_i(ifu_valid),
+        .idu_ready_o(idu_ready),
+        .exu_ready_i(exu_ready),
+        .idu_valid_o(idu_valid),
         .ext_op_i(ext_op),
         .opcode_o(opcode),
         .funct3_o(funct3),
@@ -137,20 +149,18 @@ module cpu(
 
     /*LSU*/
     lsu i_lsu(
-        .clk_i(clk_i),
-        .rstn_i(rstn_i),
         .rw_ctrl_i(mem_wr),
         .alu_addr_i(alu_out),
         .data_i(data_i),
         .mem_wr_o(mem_wr_ctrl),
         .rwtype_o(rwtype_o),
         .data_addr_o(mem_data_addr),
-        .data_o(data_to_mem),
+        .data_o(data_o),
         .data_reg_to_mem_i(rs2_data),
         .data_mem_to_reg_o(data_mem_to_reg)
     );
     assign registers_wdata = mem_to_reg?data_mem_to_reg:alu_out;  //Select data to be written to register 
-    assign data_o = data_to_mem;         //Data to be written into data memory
+    //assign data_o = data_to_mem;         //Data to be written into data memory
     assign mem_wr_o = mem_wr_ctrl;       //Data memory read/write control
     assign data_addr_o = mem_data_addr;  //Data memory read/write address
 

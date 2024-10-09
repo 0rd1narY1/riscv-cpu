@@ -19,9 +19,9 @@ set report_path "./reports"
 #设置outputs文件夹
 set output_path "./outputs"    
 
-set rtl_list [list ../src/cpu.v ../src/alu/alu.v ../src/ifu/ifu.v \
-                   ../src/decoder/decoder.v ../src/ctrl_unit/ctrlu.v ../src/regfile/regfile.v \
-                   ../src/regfile/memory.v]
+set rtl_list [list ../src/cpu.v ../src/EXU/alu.v ../src/IFU/ifu.v \
+                   ../src/IDU/decoder.v ../src/LSU/lsu.v ../src/ctrl_unit/ctrlu.v \
+                   ../src/regfile/regfile.v ../src/regfile/memory.v]
 analyze -f verilog $rtl_list
 elaborate cpu
  
@@ -38,16 +38,16 @@ set_wire_load_model -name "50x50"
 set_wire_load_mode top
  
 #设置时钟，周期200ns，脉宽0-50ns
-create_clock -period 100 -waveform {0 20} [get_ports clk_i]  -name clk    
+create_clock -period 100 -waveform {0 50} [get_ports clk_i]  -name clk    
  
 #延迟时间2.5ns
-set_clock_latency 2 clk    
+set_clock_latency 3 clk    
 #翻转时间0.3ns
 set_clock_transition 0.3 clk    
 #建立时间1.5ns
-set_clock_uncertainty 1.2 -setup clk   
+set_clock_uncertainty 2 -setup clk   
 #保持时间0.3ns
-set_clock_uncertainty 0.2 -hold clk    
+set_clock_uncertainty 1 -hold clk    
  
 #设置输入驱动强度为0
 set_drive 0 [list clk_i rstn_i]      
@@ -59,7 +59,7 @@ set_input_delay  2 -clock [get_clocks clk] [all_inputs]
 #设置输出负载为2pF
 set_load          2        [all_outputs]    
  
-set_max_area 0
+set_max_area 30000
  
 check_design > $report_path/check_design_before_compile.rpt
 check_timing > $report_path/check_timing_before_compile.rpt
